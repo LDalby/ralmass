@@ -37,6 +37,8 @@ GetParamType <- function(param = NULL) {
         'MAP_WEATHER_FILE' = 'MAP_WEATHER_FILE (string)',
         'FARMSIZEPROBPARAMONE' = 'FARMSIZEPROBPARAMONE (float)',
         'ROOSTDISTPROBPARAMONE' = 'ROOSTDISTPROBPARAMONE (float)',
+        'HUNTERS_DISTRIBUTE' = 'HUNTERS_DISTRIBUTE (bool)',
+        'HUNTERS_RECORDBAG' = 'HUNTERS_RECORDBAG (bool)',
         'MissingParameter'
         )
 }

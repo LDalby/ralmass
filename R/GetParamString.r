@@ -11,7 +11,7 @@
 		if(is.null(config)){
 			stop('Input parameter config missing')
 		}
-	valuestring = stringr::str_split(value[1], '=')
+	valuestring = stringr::str_split(config[1], '=')
 	value = stringr::str_trim(valuestring[[1]][1])
 	return(value)
 }

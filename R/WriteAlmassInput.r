@@ -13,7 +13,7 @@
 #' @param headers logical Should the output file include headers?
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
-WriteAlmassIput = function(table = NULL, pathtofile = NULL, headers = TRUE){
+WriteAlmassInput = function(table = NULL, pathtofile = NULL, headers = TRUE){
 	if(any(is.null(table), is.null(pathtofile))) 
 	{
 		stop('Input parameter missing \n')

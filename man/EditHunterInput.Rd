@@ -2,7 +2,7 @@
 % Please edit documentation in R/EditHunterInput.r
 \name{EditHunterInput}
 \alias{EditHunterInput}
-\title{Write input file to ALMaSS}
+\title{Edit input file for the Hunter model}
 \usage{
 EditHunterInput(hhl = NULL, column = NULL, change = NULL)
 }
@@ -17,11 +17,10 @@ EditHunterInput(hhl = NULL, column = NULL, change = NULL)
 A tab separated text file formatted as an ALMaSS input file.
 }
 \description{
-Write an input file ready for loading in ALMaSS. This has the format of line
-1 being the number of rows, line 2 the headers (if needed) and then the 
-actual content of the colummns. The file is a tab delimeted txt file.
-A few of the older ALMaSS input files do not contain headers. This can be 
-switched on or of using the headers argument.
+Some of the input parameters for the hunter model are given as individual
+values to each object. This is controlled via the
+ Hunter_Hunting_Locations.txt file and this \code{EditHunterInput} will
+apply changes to specified inputs.
 }
 \details{
 \code{change} gives the proportion of hunters which will have a 1 in 

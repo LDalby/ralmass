@@ -1,11 +1,10 @@
-#' Write input file to ALMaSS
+#' Edit input file for the Hunter model
 #'
-#' Write an input file ready for loading in ALMaSS. This has the format of line
-#' 1 being the number of rows, line 2 the headers (if needed) and then the 
-#' actual content of the colummns. The file is a tab delimeted txt file.
-#' A few of the older ALMaSS input files do not contain headers. This can be 
-#' switched on or of using the headers argument.
-#'
+#' Some of the input parameters for the hunter model are given as individual
+#' values to each object. This is controlled via the
+#'  Hunter_Hunting_Locations.txt file and this \code{EditHunterInput} will
+#' apply changes to specified inputs.
+#' 
 #' \code{change} gives the proportion of hunters which will have a 1 in 
 #' WeekdayHunterChance or GooseLookChance. When \code{column} is HuntingDays
 #' \code{change} will increase (when \code{change} > 1) or decrease 

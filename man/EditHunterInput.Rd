@@ -4,7 +4,7 @@
 \alias{EditHunterInput}
 \title{Edit input file for the Hunter model}
 \usage{
-EditHunterInput(hhl = NULL, column = NULL, change = NULL)
+EditHunterInput(hhl = NULL, column = NULL, change = NULL, weekbehav = 0)
 }
 \arguments{
 \item{hhl}{data.table An existing Hunter_Hunting_Locations.txt file}
@@ -12,6 +12,8 @@ EditHunterInput(hhl = NULL, column = NULL, change = NULL)
 \item{column}{character Name of column to apply change to}
 
 \item{change}{numeric The change to apply. See details}
+
+\item{weekbehav}{numeric The weekly hunting behaviour. See details}
 }
 \value{
 A tab separated text file formatted as an ALMaSS input file.
@@ -29,5 +31,10 @@ WeekdayHunterChance or GooseLookChance. When \code{column} is HuntingDays
 (when \code{change} < 1) the already existing distribution of HuntingDays. 
 When \code{column} is Efficiency, \code{change} will be the actual value
 given to all hunters.
+
+\code{weekbehav} controls the weekly hunting behaviour. 0 is weekend hunting
+only (default), 1 is not weekend only and 2 means leave a refraction period
+ in between hunting events. The refraction period is controlled by a config
+ variable in ALMaSS.
 }
 

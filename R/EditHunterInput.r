@@ -12,12 +12,18 @@
 #' When \code{column} is Efficiency, \code{change} will be the actual value
 #' given to all hunters.
 #' 
+#' \code{weekbehav} controls the weekly hunting behaviour. 0 is weekend hunting
+#' only (default), 1 is not weekend only and 2 means leave a refraction period
+#'  in between hunting events. The refraction period is controlled by a config
+#'  variable in ALMaSS. 
+#' 
 #' @param hhl data.table An existing Hunter_Hunting_Locations.txt file
 #' @param column character Name of column to apply change to
 #' @param change numeric The change to apply. See details
+#' @param weekbehav numeric The weekly hunting behaviour. See details
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
-EditHunterInput = function(hhl = NULL, column = NULL, change = NULL) {
+EditHunterInput = function(hhl = NULL, column = NULL, change = NULL, weekbehav = 0) {
 	if(any(is.null(hhl), is.null(column), is.null(change))){
 		stop('Input parameter missing')
 	}
@@ -28,7 +34,7 @@ EditHunterInput = function(hhl = NULL, column = NULL, change = NULL) {
 		hunters = nrow(hhl)
 		weekdayhunters = round(hunters*change)
 		weekendhunters = hunters-weekdayhunters
-		thehunters = c(rep(1, weekdayhunters), rep(0, weekendhunters))
+		thehunters = c(rep(1, weekdayhunters), rep(weekbehav, weekendhunters))
 		final = sample(x = thehunters, replace = FALSE)
 		hhl[, WeekdayHunterChance:=final]
 	}

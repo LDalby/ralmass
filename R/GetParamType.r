@@ -47,6 +47,7 @@ GetParamType <- function(param = NULL) {
         'GOOSE_GL_NONBREEDERS_STARTNOS' = 'GOOSE_GL_NONBREEDERS_STARTNOS (int)',
         'GOOSE_OPENSEASON_END' = 'GOOSE_OPENSEASON_END (int)',
         'HUNTER_REFRACTIONPERIOD' = 'HUNTER_REFRACTIONPERIOD (int)',
+        'HUNTER_MAGAZINECAPACITY' = 'HUNTER_MAGAZINECAPACITY (int)',
         # These are a special case for the hunter model and are supposed to
         # stay unchanged. This a hack so GenerateParams still works.
         'HuntingDays' = 'HuntingDays',

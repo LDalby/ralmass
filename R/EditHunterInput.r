@@ -31,6 +31,9 @@ EditHunterInput = function(hhl = NULL, column = NULL, change = NULL, weekbehav =
 		hhl[, HuntingDays:=round(HuntingDays*change)]
 	}
 	if(column == 'WeekdayHunterChance'){
+		if(change > 1.0 | change < 0.0 ){
+			stop('Invalid proportion of weekday hunters')
+		}
 		hunters = nrow(hhl)
 		weekdayhunters = round(hunters*change)
 		weekendhunters = hunters-weekdayhunters
@@ -39,6 +42,9 @@ EditHunterInput = function(hhl = NULL, column = NULL, change = NULL, weekbehav =
 		hhl[, WeekdayHunterChance:=final]
 	}
 	if(column == 'GooseLookChance'){
+		if(change > 1.0 | change < 0.0 ){
+			stop('Invalid proportion of checkers hunters')
+		}
 		hunters = nrow(hhl)
 		checkers = round(hunters*change)
 		noncheckers = hunters-checkers

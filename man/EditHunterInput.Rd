@@ -4,10 +4,11 @@
 \alias{EditHunterInput}
 \title{Edit input file for the Hunter model}
 \usage{
-EditHunterInput(hhl = NULL, column = NULL, change = NULL, weekbehav = 0)
+EditHunterInput(hhlpath = NULL, column = NULL, change = NULL,
+  weekbehav = 0)
 }
 \arguments{
-\item{hhl}{data.table An existing Hunter_Hunting_Locations.txt file}
+\item{hhlpath}{character Path to an existing Hunter_Hunting_Locations.txt file}
 
 \item{column}{character Name of column to apply change to}
 

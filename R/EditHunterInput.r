@@ -17,16 +17,17 @@
 #'  in between hunting events. The refraction period is controlled by a config
 #'  variable in ALMaSS. 
 #' 
-#' @param hhl data.table An existing Hunter_Hunting_Locations.txt file
+#' @param hhlpath character Path to an existing Hunter_Hunting_Locations.txt file
 #' @param column character Name of column to apply change to
 #' @param change numeric The change to apply. See details
 #' @param weekbehav numeric The weekly hunting behaviour. See details
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
-EditHunterInput = function(hhl = NULL, column = NULL, change = NULL, weekbehav = 0) {
+EditHunterInput = function(hhlpath = NULL, column = NULL, change = NULL, weekbehav = 0) {
 	if(any(is.null(hhl), is.null(column), is.null(change))){
 		stop('Input parameter missing')
 	}
+	hhl = data.table::fread(hhlpath, skip = 1)
 	if(column == 'HuntingDays'){
 		hhl[, HuntingDays:=round(HuntingDays*change)]
 	}
@@ -55,5 +56,5 @@ EditHunterInput = function(hhl = NULL, column = NULL, change = NULL, weekbehav =
 	if(column == 'Efficiency'){
 		hhl[, Efficiency:=change]
 	}
-	WriteAlmassInput(table = hhl, pathtofile = file.path(getwd(), 'Hunter_Hunting_Locations.txt')) 
+	WriteAlmassInput(table = hhl, pathtofile = hhlpath) 
 }

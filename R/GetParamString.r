@@ -11,11 +11,11 @@ GetParamString = function(config = NULL) {
 	if(is.null(config)){
 		stop('Input parameter config missing')
 	}
-	if(length(grep('(', config)) > 0) 
+	if(length(grep('\\(', config)) > 0) 
 	{
-		valuestring = stringr::str_split(config[1], '(')
+		valuestring = stringr::str_split(config[1], '\\(')
 	}
-	if(length(grep('(', config)) == 0) 
+	if(length(grep('\\(', config)) == 0) 
 	{
 		valuestring = stringr::str_split(config[1], '=')
 	} 

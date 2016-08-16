@@ -24,7 +24,7 @@
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
 EditHunterInput = function(hhlpath = NULL, column = NULL, change = NULL, weekbehav = 0) {
-	if(any(is.null(hhl), is.null(column), is.null(change))){
+	if(any(is.null(hhlpath), is.null(column), is.null(change))){
 		stop('Input parameter missing')
 	}
 	hhl = data.table::fread(hhlpath, skip = 1)

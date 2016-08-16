@@ -4,13 +4,13 @@
 \alias{EditHunterInput}
 \title{Edit input file for the Hunter model}
 \usage{
-EditHunterInput(hhlpath = NULL, column = NULL, change = NULL,
+EditHunterInput(hhlpath = NULL, parameter = NULL, change = NULL,
   weekbehav = 0)
 }
 \arguments{
 \item{hhlpath}{character Path to an existing Hunter_Hunting_Locations.txt file}
 
-\item{column}{character Name of column to apply change to}
+\item{parameter}{character Name of parameter to apply change to}
 
 \item{change}{numeric The change to apply. See details}
 
@@ -22,7 +22,7 @@ A tab separated text file formatted as an ALMaSS input file.
 \description{
 Some of the input parameters for the hunter model are given as individual
 values to each object. This is controlled via the
- Hunter_Hunting_Locations.txt file and this \code{EditHunterInput} will
+ Hunter_Hunting_Locations.txt file and \code{EditHunterInput} will
 apply changes to specified inputs.
 }
 \details{

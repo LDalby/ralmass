@@ -2,7 +2,7 @@
 #'
 #' Some of the input parameters for the hunter model are given as individual
 #' values to each object. This is controlled via the
-#'  Hunter_Hunting_Locations.txt file and this \code{EditHunterInput} will
+#'  Hunter_Hunting_Locations.txt file and \code{EditHunterInput} will
 #' apply changes to specified inputs.
 #' 
 #' \code{change} gives the proportion of hunters which will have a 1 in 
@@ -18,20 +18,20 @@
 #'  variable in ALMaSS. 
 #' 
 #' @param hhlpath character Path to an existing Hunter_Hunting_Locations.txt file
-#' @param column character Name of column to apply change to
+#' @param parameter character Name of parameter to apply change to
 #' @param change numeric The change to apply. See details
 #' @param weekbehav numeric The weekly hunting behaviour. See details
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
-EditHunterInput = function(hhlpath = NULL, column = NULL, change = NULL, weekbehav = 0) {
-	if(any(is.null(hhlpath), is.null(column), is.null(change))){
+EditHunterInput = function(hhlpath = NULL, parameter = NULL, change = NULL, weekbehav = 0) {
+	if(any(is.null(hhlpath), is.null(parameter), is.null(change))){
 		stop('Input parameter missing')
 	}
 	hhl = data.table::fread(hhlpath, skip = 1)
-	if(column == 'HuntingDays'){
+	if(parameter == 'HuntingDays'){
 		hhl[, HuntingDays:=round(HuntingDays*change)]
 	}
-	if(column == 'WeekdayHunterChance'){
+	if(parameter == 'WeekdayHunterChance'){
 		if(change > 1.0 | change < 0.0 ){
 			stop('Invalid proportion of weekday hunters')
 		}
@@ -42,7 +42,7 @@ EditHunterInput = function(hhlpath = NULL, column = NULL, change = NULL, weekbeh
 		final = sample(x = thehunters, replace = FALSE)
 		hhl[, WeekdayHunterChance:=final]
 	}
-	if(column == 'GooseLookChance'){
+	if(parameter == 'GooseLookChance'){
 		if(change > 1.0 | change < 0.0 ){
 			stop('Invalid proportion of checkers hunters')
 		}
@@ -53,8 +53,15 @@ EditHunterInput = function(hhlpath = NULL, column = NULL, change = NULL, weekbeh
 		final = sample(x = thehunters, replace = FALSE)
 		hhl[, GooseLookChance:=final]
 	}
-	if(column == 'Efficiency'){
+	if(parameter == 'Efficiency'){
 		hhl[, Efficiency:=change]
+	}
+	if(parameter == 'NumberOfHunters') 
+	{
+		nohunters = nrow(hhl)
+		newnohunters = round(nohunters*change)
+		chosenones = sample(1:nohunters, newnohunters, replace = FALSE)
+		hhl = hhl[chosenones,]
 	}
 	WriteAlmassInput(table = hhl, pathtofile = hhlpath) 
 }

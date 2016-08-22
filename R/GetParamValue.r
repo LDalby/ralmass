@@ -7,12 +7,15 @@
 #' @return The value of the config parameter
 #' @export 
 	GetParamValue = function(config = NULL, param = NULL) {
-		if(any(is.null(config), is.null(param))){
-			stop('Input parameter missing')
+		if(is.null(param)){
+			stop('Input parameter param missing')
 		}
-	value = config[grep(param, config)]
-	value = value[length(value)] 
-	valuestring = stringr::str_split(value[1], '=')
+		if(!is.null(config)) 
+		{
+			param = config[grep(param, config)]
+			param = param[length(param)]  # Get the last mention of param
+		}
+	valuestring = stringr::str_split(param[1], '=')
 	value = as.numeric(stringr::str_trim(valuestring[[1]][2]))
 	return(value)
 }

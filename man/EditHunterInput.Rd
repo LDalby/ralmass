@@ -27,10 +27,10 @@ apply changes to specified inputs.
 }
 \details{
 \code{change} gives the proportion of hunters which will have a 1 in 
-WeekdayHunterChance or GooseLookChance. When \code{column} is HuntingDays
+WeekdayHunterChance or GooseLookChance. When \code{parameter} is HuntingDays
 \code{change} will increase (when \code{change} > 1) or decrease 
 (when \code{change} < 1) the already existing distribution of HuntingDays. 
-When \code{column} is Efficiency, \code{change} will be the actual value
+When \code{parameter} is Efficiency, \code{change} will be the actual value
 given to all hunters.
 
 \code{weekbehav} controls the weekly hunting behaviour. 0 is weekend hunting

@@ -4,10 +4,12 @@
 \alias{EditHunterInput}
 \title{Edit input file for the Hunter model}
 \usage{
-EditHunterInput(hhlpath = NULL, parameter = NULL, change = NULL,
-  weekbehav = 0)
+EditHunterInput(file = NULL, hhlpath = NULL, parameter = NULL,
+  change = NULL, weekbehav = 0)
 }
 \arguments{
+\item{file}{character Path to the existing Hunter_Hunting_Locations.txt file}
+
 \item{hhlpath}{character Path to an existing Hunter_Hunting_Locations.txt file}
 
 \item{parameter}{character Name of parameter to apply change to}
@@ -37,5 +39,9 @@ given to all hunters.
 only (default), 1 is not weekend only and 2 means leave a refraction period
  in between hunting events. The refraction period is controlled by a config
  variable in ALMaSS.
+
+\code{file} is the orginal Hunter_Hunting_Locations.txt file to modify and 
+\code{hhlpath} gives the path to where the modified 
+Hunter_Hunting_Locations.txt is written to.
 }
 

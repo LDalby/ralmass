@@ -5,7 +5,7 @@
 \title{Edit input file for the Hunter model}
 \usage{
 EditHunterInput(file = NULL, hhlpath = NULL, parameter = NULL,
-  change = NULL, weekbehav = 0)
+  change = NULL, weekbehav = 0, allhunters = FALSE)
 }
 \arguments{
 \item{file}{character Path to the existing Hunter_Hunting_Locations.txt file}
@@ -17,6 +17,9 @@ EditHunterInput(file = NULL, hhlpath = NULL, parameter = NULL,
 \item{change}{numeric The change to apply. See details}
 
 \item{weekbehav}{numeric The weekly hunting behaviour. See details}
+
+\item{allhunters}{logical Should the behaviour of all
+hunters be modified? See details}
 }
 \value{
 A tab separated text file formatted as an ALMaSS input file.
@@ -43,5 +46,9 @@ only (default), 1 is not weekend only and 2 means leave a refraction period
 \code{file} is the orginal Hunter_Hunting_Locations.txt file to modify and 
 \code{hhlpath} gives the path to where the modified 
 Hunter_Hunting_Locations.txt is written to.
+
+\code{allhunters} By default we only modify WeekdayHunterChance and 
+GooseLookChance for the 343 expert goose hunters. If the change should
+be applied across all hunters, set \code{allhunters = TRUE}
 }
 

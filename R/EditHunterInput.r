@@ -40,23 +40,26 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL, change
 		if(change > 1.0 | change < 0.0 ){
 			stop('Invalid proportion of weekday hunters')
 		}
-		hunters = nrow(hhl)
+		# hunters = nrow(hhl)
+		hunters = 343
 		weekdayhunters = round(hunters*change)
 		weekendhunters = hunters-weekdayhunters
 		thehunters = c(rep(1, weekdayhunters), rep(weekbehav, weekendhunters))
 		final = sample(x = thehunters, replace = FALSE)
-		hhl[, WeekdayHunterChance:=final]
+		# hhl[, WeekdayHunterChance:=final]
+		hhl[1:hunters, WeekdayHunterChance:=final]
 	}
 	if(parameter == 'GooseLookChance'){
 		if(change > 1.0 | change < 0.0 ){
 			stop('Invalid proportion of checkers hunters')
 		}
-		hunters = nrow(hhl)
+		# hunters = nrow(hhl)
+		hunters = 343
 		checkers = round(hunters*change)
 		noncheckers = hunters-checkers
 		thehunters = c(rep(1, checkers), rep(0, noncheckers))
 		final = sample(x = thehunters, replace = FALSE)
-		hhl[, GooseLookChance:=final]
+		hhl[1:hunters, GooseLookChance:=final]
 	}
 	if(parameter == 'Efficiency'){
 		hhl[, Efficiency:=change]
@@ -64,9 +67,25 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL, change
 	if(parameter == 'NumberOfHunters') 
 	{
 		nohunters = nrow(hhl)
-		newnohunters = round(nohunters*change)
-		chosenones = sample(1:nohunters, newnohunters, replace = FALSE)
-		hhl = hhl[chosenones,]
+		if(change > 1) 
+		{
+			rest = newnohunters %% nohunters
+			if(rest != 0) 
+			{
+				resthunters = sample(1:nohunters, resthunters, replace = FALSE)
+				multiple = floor(change)
+				tmp = hhl
+				for (i in 1:multiple) {
+					tmp = rbind(temp, hhl)
+				}
+				hhl = rbind(tmp, hhl[resthunters,])
+			}
+		}
+		if(change < 1){
+			newnohunters = round(nohunters*change)
+			chosenones = sample(1:nohunters, newnohunters, replace = FALSE)
+			hhl = hhl[chosenones,]
+		}
 	}
 	WriteAlmassInput(table = hhl, pathtofile = hhlpath) 
 }

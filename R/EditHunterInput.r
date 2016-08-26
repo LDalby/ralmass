@@ -23,6 +23,8 @@
 #' 
 #' \code{huntersubset} Defines the subset of hunters to apply change to. 
 #' By default we only modify WeekdayHunterChance and GooseLookChance for
+#' the 343 expert goose hunters. If the change should be applied across
+#' all hunters, set \code{huntersubset = 'all'}. The 403 occasional hunters
 #' can be modified by using \code{huntersubset = 'occasional'} and the expert
 #' group by \code{huntersubset = 'experts'}
 #' 

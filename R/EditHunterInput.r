@@ -21,23 +21,26 @@
 #' \code{hhlpath} gives the path to where the modified 
 #' Hunter_Hunting_Locations.txt is written to.
 #' 
-#' \code{allhunters} By default we only modify WeekdayHunterChance and 
+#' \code{huntersubset} By default we only modify WeekdayHunterChance and 
 #' GooseLookChance for the 343 expert goose hunters. If the change should
-#' be applied across all hunters, set \code{allhunters = TRUE}
+#' be applied across all hunters, set \code{huntersubset = TRUE}
 #' 
 #' @param file character Path to the existing Hunter_Hunting_Locations.txt file
 #' @param hhlpath character Path to an existing Hunter_Hunting_Locations.txt file
 #' @param parameter character Name of parameter to apply change to
 #' @param change numeric The change to apply. See details
 #' @param weekbehav numeric The weekly hunting behaviour. See details
-#' @param allhunters logical Should the behaviour of all
+#' @param huntersubset character Should the behaviour of all
 #'  hunters be modified? See details
 #' @return A tab separated text file formatted as an ALMaSS input file.
 #' @export
 EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
- change = NULL, weekbehav = 0, allhunters = FALSE) {
+ change = NULL, weekbehav = 0, huntersubset = 'all') {
 	if(any(is.null(hhlpath), is.null(parameter), is.null(change), is.null(file))) {
 		stop('Input parameter missing')
+	}
+	if(!tolower(huntersubset) %in% c('all', 'experts', 'occasional')) {
+		stop('Invalid huntersubset')
 	}
 	hhl = data.table::fread(file, skip = 1)
 	if(parameter == 'HuntingDays'){
@@ -48,42 +51,52 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 			stop('Invalid proportion of weekday hunters')
 		}
 		# 
-		if(allhunters) {
+		if(tolower(huntersubset) == 'all') {
 			hunters = nrow(hhl)
 		}
-		if(!allhunters) { 
-			hunters = 343 
+		if(tolower(huntersubset) == 'experts') { 
+			hunters = 343
+			start = 1 
+		}
+		if(tolower(huntersubset) == 'occasional') { 
+			hunters = 746
+			start = 344 
 		}
 		weekdayhunters = round(hunters*change)
 		weekendhunters = hunters-weekdayhunters
 		thehunters = c(rep(1, weekdayhunters), rep(weekbehav, weekendhunters))
 		final = sample(x = thehunters, replace = FALSE)
-		if(allhunters) {
+		if(tolower(huntersubset) == 'all') {
 			hhl[, WeekdayHunterChance:=final]
 		}
-		if(!allhunters) {
-			hhl[1:hunters, WeekdayHunterChance:=final]
+		if(tolower(huntersubset) != 'all') {
+			hhl[start:hunters, WeekdayHunterChance:=final]
 		}
 	}
 	if(parameter == 'GooseLookChance'){
 		if(change > 1.0 | change < 0.0 ){
 			stop('Invalid proportion of checkers hunters')
 		}
-		if(allhunters) {
+		if(tolower(huntersubset) == 'all') {
 			hunters = nrow(hhl)
 		}
-		if(!allhunters) { 
-			hunters = 343 
+		if(tolower(huntersubset) == 'experts') { 
+			hunters = 343
+			start = 1 
+		}
+		if(tolower(huntersubset) == 'occasional') { 
+			hunters = 746
+			start = 344 
 		}
 		checkers = round(hunters*change)
 		noncheckers = hunters-checkers
 		thehunters = c(rep(1, checkers), rep(0, noncheckers))
 		final = sample(x = thehunters, replace = FALSE)
-		if(allhunters) {
+		if(tolower(huntersubset) == 'all') {
 			hhl[, GooseLookChance:=final]
 		}
-		if(!allhunters) {
-			hhl[1:hunters, GooseLookChance:=final]
+		if(tolower(huntersubset) != 'all') {
+			hhl[start:hunters, GooseLookChance:=final]
 		}
 	}
 	if(parameter == 'Efficiency'){

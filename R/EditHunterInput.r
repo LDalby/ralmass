@@ -58,12 +58,14 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 			hunters = nrow(hhl)
 		}
 		if(tolower(huntersubset) == 'experts') { 
-			hunters = 343
 			start = 1 
+			stop = 343
+			hunters = length(start:stop)
 		}
 		if(tolower(huntersubset) == 'occasional') { 
-			hunters = 746
 			start = 344 
+			stop = 746
+			hunters = length(start:stop)
 		}
 		weekdayhunters = round(hunters*change)
 		weekendhunters = hunters-weekdayhunters
@@ -84,12 +86,14 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 			hunters = nrow(hhl)
 		}
 		if(tolower(huntersubset) == 'experts') { 
-			hunters = 343
 			start = 1 
+			stop = 343
+			hunters = length(start:stop)
 		}
 		if(tolower(huntersubset) == 'occasional') { 
-			hunters = 746
 			start = 344 
+			stop = 746
+			hunters = length(start:stop)
 		}
 		checkers = round(hunters*change)
 		noncheckers = hunters-checkers

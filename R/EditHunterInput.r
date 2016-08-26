@@ -75,7 +75,7 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 			hhl[, WeekdayHunterChance:=final]
 		}
 		if(tolower(huntersubset) != 'all') {
-			hhl[start:hunters, WeekdayHunterChance:=final]
+			hhl[start:stop, WeekdayHunterChance:=final]
 		}
 	}
 	if(parameter == 'GooseLookChance'){
@@ -103,7 +103,7 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 			hhl[, GooseLookChance:=final]
 		}
 		if(tolower(huntersubset) != 'all') {
-			hhl[start:hunters, GooseLookChance:=final]
+			hhl[start:stop, GooseLookChance:=final]
 		}
 	}
 	if(parameter == 'Efficiency'){

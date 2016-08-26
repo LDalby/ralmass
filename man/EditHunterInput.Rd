@@ -5,7 +5,7 @@
 \title{Edit input file for the Hunter model}
 \usage{
 EditHunterInput(file = NULL, hhlpath = NULL, parameter = NULL,
-  change = NULL, weekbehav = 0, allhunters = FALSE)
+  change = NULL, weekbehav = 0, huntersubset = "all")
 }
 \arguments{
 \item{file}{character Path to the existing Hunter_Hunting_Locations.txt file}
@@ -18,7 +18,7 @@ EditHunterInput(file = NULL, hhlpath = NULL, parameter = NULL,
 
 \item{weekbehav}{numeric The weekly hunting behaviour. See details}
 
-\item{allhunters}{logical Should the behaviour of all
+\item{huntersubset}{character Should the behaviour of all
 hunters be modified? See details}
 }
 \value{
@@ -47,8 +47,11 @@ only (default), 1 is not weekend only and 2 means leave a refraction period
 \code{hhlpath} gives the path to where the modified 
 Hunter_Hunting_Locations.txt is written to.
 
-\code{allhunters} By default we only modify WeekdayHunterChance and 
-GooseLookChance for the 343 expert goose hunters. If the change should
-be applied across all hunters, set \code{allhunters = TRUE}
+\code{huntersubset} Defines the subset of hunters to apply change to. 
+By default we only modify WeekdayHunterChance and GooseLookChance for
+ the 343 expert goose hunters. If the change should be applied across
+ all hunters, set \code{huntersubset = 'all'}. The 403 occasional hunters
+can be modified by using \code{huntersubset = 'occasional'} and the expert
+group by \code{huntersubset = 'experts'}
 }
 

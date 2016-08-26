@@ -21,9 +21,10 @@
 #' \code{hhlpath} gives the path to where the modified 
 #' Hunter_Hunting_Locations.txt is written to.
 #' 
-#' \code{huntersubset} By default we only modify WeekdayHunterChance and 
-#' GooseLookChance for the 343 expert goose hunters. If the change should
-#' be applied across all hunters, set \code{huntersubset = TRUE}
+#' \code{huntersubset} Defines the subset of hunters to apply change to. 
+#' By default we only modify WeekdayHunterChance and GooseLookChance for
+#' can be modified by using \code{huntersubset = 'occasional'} and the expert
+#' group by \code{huntersubset = 'experts'}
 #' 
 #' @param file character Path to the existing Hunter_Hunting_Locations.txt file
 #' @param hhlpath character Path to an existing Hunter_Hunting_Locations.txt file

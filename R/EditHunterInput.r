@@ -125,7 +125,7 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 					tmp = rbind(tmp, hhl)
 				}
 				hhl = rbind(tmp, hhl[resthunters,])
-				hhl[, HunterID:=0:nrow(hhl)]
+				hhl[, HunterID:=0:nrow(hhl)-1]
 			}
 			if(rest == 0)
 			{
@@ -134,7 +134,7 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 					tmp = rbind(tmp, hhl)
 				}
 				hhl = tmp
-				hhl[, HunterID:=0:nrow(hhl)]
+				hhl[, HunterID:=0:nrow(hhl)-1]
 			}
 		}
 		if(change < 1){

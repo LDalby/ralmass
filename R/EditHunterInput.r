@@ -112,18 +112,27 @@ EditHunterInput = function(file = NULL, hhlpath = NULL, parameter = NULL,
 	if(parameter == 'NumberOfHunters') 
 	{
 		nohunters = nrow(hhl)
+		newnohunters = round(nohunters*change)
 		if(change > 1) 
 		{
 			rest = newnohunters %% nohunters
 			if(rest != 0) 
 			{
-				resthunters = sample(1:nohunters, resthunters, replace = FALSE)
+				resthunters = sample(1:nohunters, rest, replace = FALSE)
 				multiple = floor(change)
 				tmp = hhl
 				for (i in 1:multiple) {
-					tmp = rbind(temp, hhl)
+					tmp = rbind(tmp, hhl)
 				}
 				hhl = rbind(tmp, hhl[resthunters,])
+			}
+			if(rest == 0)
+			{
+				tmp = hhl
+				for (i in 1:(change-1)) {
+					tmp = rbind(tmp, hhl)
+				}
+				hhl = tmp
 			}
 		}
 		if(change < 1){

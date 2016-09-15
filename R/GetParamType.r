@@ -63,6 +63,8 @@ GetParamType <- function(param = NULL) {
         'HUNTER_LARGEFIELDGOOSEPROXIMITYCHANCE' = 'HUNTER_LARGEFIELDGOOSEPROXIMITYCHANCE (float)',
         'HUNTER_LARGEFIELDGOOSEPROXIMITYCHANCESIZECUTOFF' = 'HUNTER_LARGEFIELDGOOSEPROXIMITYCHANCESIZECUTOFF (int)',
         'HUNTER_CHECK_FREQUENCY' = 'HUNTER_CHECK_FREQUENCY (float)',
+        'HUNTER_PINKFOOTBAGLIMIT' = 'HUNTER_PINKFOOTBAGLIMIT (int)',
+        'HUNTER_GREYLAGBAGLIMIT' = 'HUNTER_GREYLAGBAGLIMIT (int)',
         # These are a special case for the hunter model and are supposed to
         # stay unchanged. This a hack so GenerateParams still works.
         'HuntingDays' = 'HuntingDays',

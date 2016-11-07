@@ -56,6 +56,6 @@ PlotEnergetics = function(SimData, FieldData, Sample = NULL) {
 	theme_bw() + 
 	theme(axis.text=element_text(size=8)) + 
 	scale_x_date(date_breaks = "1 month", date_labels = "%b", 
-		limits = c(lubridate::date("2012-10-01"), lubridate::date("2013-02-28"))
+		limits = c(lubridate::date("2012-10-01"), lubridate::date("2013-02-28")))
 	return(p)
 }

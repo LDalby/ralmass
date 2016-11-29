@@ -48,9 +48,9 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 		{
 			TheDistances = dist(rbind(Roost[j,.(CentroidX, CentroidY)], Fields))[1:nrow(Fields)]
 			newcolname = paste0('Roost', j)
-			DT[,newcolname:=TheDistances, with = FALSE]
+			DT[,newcolname:=TheDistances]
 		}
-		DT[,Shortest:=apply(DT[,2:ncol(DT), with = FALSE], FUN = min, MARGIN = 1)]
+		DT[,Shortest:=apply(DT[,2:ncol(DT)], FUN = min, MARGIN = 1)]
 		DT[,Species:=species[i]]
 		nullcols = grep('Roost', names(DT))
 		DT[, (nullcols):=NULL]

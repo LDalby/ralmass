@@ -11,9 +11,9 @@ CalcFlockSizeFit(Sim = NULL, Obs = NULL, species = NULL)
 \item{Sim}{data.table A data.table with a columns identifying the species 
 and a column with each flock observation from the simulation.}
 
-\item{species}{character Either Barnacle, Pinkfoot or Greylag.}
+\item{Obs}{data.table Same as Sim but field observations.}
 
-\item{Field}{data.table Same as Sim but field observations.}
+\item{species}{character Either Barnacle, Pinkfoot or Greylag.}
 }
 \description{
 Calculate fit between the simulated flock size distribution to the observed

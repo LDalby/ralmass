@@ -10,7 +10,7 @@
 #' 
 #' @param Sim data.table A data.table with a columns identifying the species 
 #' and a column with each flock observation from the simulation.
-#' @param Field data.table Same as Sim but field observations.
+#' @param Obs data.table Same as Sim but field observations.
 #' @param species character Either Barnacle, Pinkfoot or Greylag.
 #' @references Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
 #'  demogenetics in a river/nursery brook system: The individual-based

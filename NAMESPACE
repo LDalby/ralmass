@@ -2,6 +2,7 @@
 
 export(AppendWorkDir)
 export(CalcDistToRoosts)
+export(CalcFlockSizeFit)
 export(CalcHabitatUseFit)
 export(CalcNoHunterFit)
 export(CalcOverlap)

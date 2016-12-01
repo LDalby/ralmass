@@ -1,41 +1,50 @@
 #' Calculate the fit of the simulated weights to the weights observed
 #'
-#' Calculate a least squares fit between field weights and simulated weights. 
-#' The weights are scaled to go from 0 - 1 on the indivual observations.
-#' A period of time must be chosen to calculate means within.
+#' Calculate fit between field weights and simulated weights using either least 
+#' squares or the sum of standardized squared errors (SSSE, Frank & Baret 2013)
 #' 
-#' @param SimData data.table The file GooseEnergeticsData.txt
-#' @param FieldData data.table The observed weights
+#' @param Sim data.table The file GooseEnergeticsData.txt
+#' @param Field data.table The observed weights
+#' @param measure character Fit measure to use. Either LS or SSSE
+#' @references Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
+#'  demogenetics in a river/nursery brook system: The individual-based
+#'  model DemGenTrout." Ecological Modelling 248: 184-202.
 #' @export
-CalcWeightFit = function(SimData, FieldData) {
-	SimData[, Date:=as.Date(Day, origin = '2012-01-01')]
-	SimData[, Season:=c(0, cumsum(diff(data.table::month(Date)) > 1))]  # okay
+CalcWeightFit = function(Sim = NULL, Field = NULL, measure = NULL) {
+	if(any(is.null(measure), is.null(Sim), is.null(Field)))	 
+	{
+		stop('Input parameter missing')
+	}
+	Sim[, Date:=as.Date(Day-365, origin = '2012-01-01')]
+	Sim = Sim[data.table::month(Date) %in% c(9:12,1:3)]
+	Sim[, Week:=data.table::week(as.Date(DayInYear, origin = '2012-01-01'))]
 
-	simmean = SimData[, mean(Weight), by = .(data.table::week(Date), Season)]
-	data.table::setnames(simmean, c('Week', 'Season', 'AvgWeightSim'))
-	data.table::setkey(simmean, Week)
-
-	FieldData = FieldData[Date > lubridate::ymd('2010-08-01') & 
-							Date < lubridate::ymd('2015-05-31'),]
-	FieldDatamean = FieldData[, mean(Weight), by = data.table::week(Date)]
-	data.table::setnames(FieldDatamean, c('Week', 'AvgWeightField'))
-	data.table::setkey(FieldDatamean, Week)
-
-# Calculate least squares
-	seasons = unique(SimData[, Season])
-	lsfits = rep(NA, length(seasons))
+	Field = Field[Date > lubridate::ymd('2010-08-01') & 
+	Date < lubridate::ymd('2015-05-31'),]
+	Field[, Week:=data.table::week(Date)]
+	Field[, MeanWeightField:=mean(Weight), by = Week]
+	Field = unique(Field[,.(Week, MeanWeightField)])
+	data.table::setkey(Field, Week)
+	# Calculate least squares
+	seasons = unique(Sim[, Season])
+	fits = rep(NA, length(seasons))
 	for (i in seq_along(seasons)) {
-		full = merge(FieldDatamean, simmean[Season == seasons[i], .(Week, AvgWeightSim)])
-		themin = min(full[,.(AvgWeightSim, AvgWeightField)])
-		themax = max(full[,.(AvgWeightSim, AvgWeightField)])
-		denum = themax-themin
-		full[, AvgWeightSim:=(AvgWeightSim-themin)/denum, by = Week]
-		full[, AvgWeightField:=(AvgWeightField-themin)/denum, by = Week]
-		lsfits[i] = with(full, sum(1-(AvgWeightSim-AvgWeightField)^2)/length(unique(Week)))
+		full = merge(Field, Sim[Season == seasons[i], .(Week, MeanWeight)])
+		if(measure == 'LS') {
+			themin = min(full[,.(MeanWeight, MeanWeightField)])
+			themax = max(full[,.(MeanWeight, MeanWeightField)])
+			denum = themax-themin
+			full[, MeanWeight:=(MeanWeight-themin)/denum, by = Week]
+			full[, MeanWeightField:=(MeanWeightField-themin)/denum, by = Week]
+			fits[i] = full[, 1-sum((MeanWeight-MeanWeightField)^2)/length(unique(Week))]
+		}
+		if(measure == 'SSSE') {
+			fits[i] = full[, sum((MeanWeight-MeanWeightField)^2/MeanWeightField)]
+		}
 	}
-	names(lsfits) = paste0('Season', seasons)
-	if(any(lsfits < 0) | any(lsfits > 1)) {
-		stop('Fit less than 0 or greater than 1')
+	names(fits) = paste0('Season', seasons)
+	if(any(fits < 0)) {
+		stop('Fit less than 0')
 	}
-	return(lsfits)
+	return(fits)
 }

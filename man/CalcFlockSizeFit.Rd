@@ -19,9 +19,8 @@ and a column with each flock observation from the simulation.}
 Calculate fit between the simulated flock size distribution to the observed
 flock size distribution based on the sum of standardized squared 
 errors (SSSE, Frank & Baret 2013). The SSSE is here based on the proportions
-of the flock sizes falling into each bin of roughly 1/10 of the observed
-range of flock sizes. The upper bins were truncated to avoid empty bins.
-The fit is measured over the entire season.
+of the flock sizes falling into each bin of 10% quantiles of the observed
+range of flock sizes. The fit is measured over the entire season.
 }
 \references{
 Frank, B. M. and P. V. Baret (2013). "Simulating brown trout

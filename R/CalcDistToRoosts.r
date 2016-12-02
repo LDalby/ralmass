@@ -56,7 +56,16 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 		DT[, (nullcols):=NULL]
 		TheList[[i]] = DT
 	}
-	return(data.table::rbindlist(TheList))
+	result = data.table::rbindlist(TheList)
+	if(fieldobs) 
+	{
+		result[, Type:='Fieldobs']
+	}
+	if(!fieldobs) 
+	{
+		result[, Type:='Simulated']
+	}
+	return(result)
 }
 
 # Helper function

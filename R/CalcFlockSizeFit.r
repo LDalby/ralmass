@@ -4,9 +4,8 @@
 #' Calculate fit between the simulated flock size distribution to the observed
 #' flock size distribution based on the sum of standardized squared 
 #' errors (SSSE, Frank & Baret 2013). The SSSE is here based on the proportions
-#' of the flock sizes falling into each bin of roughly 1/10 of the observed
-#' range of flock sizes. The upper bins were truncated to avoid empty bins.
-#' The fit is measured over the entire season.
+#' of the flock sizes falling into each bin of 10% quantiles of the observed
+#' range of flock sizes. The fit is measured over the entire season.
 #' 
 #' @param Sim data.table A data.table with a columns identifying the species 
 #' and a column with each flock observation from the simulation.
@@ -24,7 +23,7 @@ CalcFlockSizeFit = function(Sim = NULL, Obs = NULL, species = NULL) {
 	tmp = Obs[Species == species,Numbers]
 	vec = quantile(tmp, probs = seq(.1,.9,.1))
 	flockobs = findInterval(tmp, vec = vec)
-	tmpsim = Sim[Species == species,Numbers]
+	tmpsim = Sim[Species == paste0(species,'Timed'),Numbers]
 	flocksim = findInterval(tmpsim, vec = vec)
 
 	obs = table(flockobs)/(sum(table(flockobs)))

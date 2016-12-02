@@ -21,21 +21,12 @@ CalcFlockSizeFit = function(Sim = NULL, Obs = NULL, species = NULL) {
 	{
 		stop('Input parameter missing')
 	}
-	if(species == 'Greylag') {
-		vec = c(52,104,156,208,260,312,364)
-		flocksim = findInterval(Sim[Species == 'GreylagTimed', Numbers], vec = vec)
-		flockobs = findInterval(Obs[Species == 'Greylag', Numbers], vec = vec)
-	}
-	if(species == 'Pinkfoot') {
-		vec = c(235,470,705,940,1175,1410,1645,1880)
-		flocksim = findInterval(Sim[Species == 'PinkfootTimed', Numbers], vec = vec)
-		flockobs = findInterval(Obs[Species == 'Pinkfoot', Numbers], vec = vec)
-	}
-	if(species == 'Barnacle') {
-		vec = c(440,880,1320,1760,2200,2640,3080,3520)
-		flocksim = findInterval(Sim[Species == 'BarnacleTimed', Numbers], vec = vec)
-		flockobs = findInterval(Obs[Species == 'Barnacle', Numbers], vec = vec)
-	}
+	tmp = Obs[Species == species,Numbers]
+	vec = quantile(tmp, probs = seq(.1,.9,.1))
+	flockobs = findInterval(tmp, vec = vec)
+	tmpsim = Sim[Species == species,Numbers]
+	flocksim = findInterval(tmpsim, vec = vec)
+
 	obs = table(flockobs)/(sum(table(flockobs)))
 	sim = table(flocksim)/(sum(table(flocksim)))
 	tabdefault = rep(0,length(obs))

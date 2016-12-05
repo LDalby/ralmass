@@ -6,6 +6,7 @@
 #' @param Sim data.table The file GooseEnergeticsData.txt
 #' @param Field data.table The observed weights
 #' @param measure character Fit measure to use. Either LS or SSSE
+#' @return numeric The calculated fit.
 #' @references Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
 #'  demogenetics in a river/nursery brook system: The individual-based
 #'  model DemGenTrout." Ecological Modelling 248: 184-202.

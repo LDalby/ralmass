@@ -13,6 +13,9 @@ CalcWeightFit(Sim = NULL, Field = NULL, measure = NULL)
 
 \item{measure}{character Fit measure to use. Either LS or SSSE}
 }
+\value{
+numeric The calculated fit.
+}
 \description{
 Calculate fit between field weights and simulated weights using either least 
 squares or the sum of standardized squared errors (SSSE, Frank & Baret 2013)

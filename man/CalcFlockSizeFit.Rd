@@ -5,7 +5,7 @@
 \title{Calculate the fit of the simulated flock size distribution to the observed
 flock size distribution}
 \usage{
-CalcFlockSizeFit(Sim = NULL, Obs = NULL, species = NULL)
+CalcFlockSizeFit(Sim = NULL, Obs = NULL, species = NULL, measure = NULL)
 }
 \arguments{
 \item{Sim}{data.table A data.table with a columns identifying the species 

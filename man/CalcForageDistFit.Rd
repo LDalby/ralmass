@@ -5,7 +5,8 @@
 \title{Calculate the fit of the simulated forage distance distribution to the
  observed forage distance distribution}
 \usage{
-CalcForageDistFit(Sim = NULL, Obs = NULL, species = NULL)
+CalcForageDistFit(Sim = NULL, Obs = NULL, species = NULL,
+  measure = NULL)
 }
 \arguments{
 \item{Sim}{data.table A data.table distances calculated by CalcDistToRoosts}

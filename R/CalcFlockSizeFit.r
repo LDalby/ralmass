@@ -19,8 +19,9 @@
 #'  demogenetics in a river/nursery brook system: The individual-based
 #'  model DemGenTrout." Ecological Modelling 248: 184-202.
 #' @export
-CalcFlockSizeFit = function(Sim = NULL, Obs = NULL, species = NULL) {
-	if(any(is.null(Sim), is.null(Obs), is.null(species)))	 
+CalcFlockSizeFit =  function(Sim = NULL, Obs = NULL, species = NULL,
+							 measure = NULL) {
+	if(any(is.null(Sim), is.null(Obs), is.null(species), is.null(measure)))	 
 	{
 		stop('Input parameter missing')
 	}

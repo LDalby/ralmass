@@ -69,7 +69,7 @@ CalcHabitatUseFit = function(FieldData, SimData, measure = NULL) {
 		HabFit = HabFit[PropField > 0, SSE:=(PropSim-PropField)^2/PropField, by = cols]
 		# Sum to get the SSSE
 		HabFit = HabFit[, sum(SSE, na.rm = TRUE), by = Species]
-		setnames(HabFit, c('Species', 'SSSE'))
+		setnames(HabFit, c('Species', 'Fit'))
 		return(HabFit)
 		}
 		if(measure == 'LS') {

@@ -14,13 +14,21 @@ and a column with each flock observation from the simulation.}
 \item{Obs}{data.table Same as Sim but field observations.}
 
 \item{species}{character Either Barnacle, Pinkfoot or Greylag.}
+
+\item{measure}{character Either LS or SSSE}
+}
+\value{
+numeric The calculated fit.
 }
 \description{
 Calculate fit between the simulated flock size distribution to the observed
 flock size distribution based on the sum of standardized squared 
-errors (SSSE, Frank & Baret 2013). The SSSE is here based on the proportions
-of the flock sizes falling into each bin of 10% quantiles of the observed
-range of flock sizes. The fit is measured over the entire season.
+errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
+}
+\details{
+The fit is measured on the proportions of the flock sizes falling into
+each bin of 10% quantiles of the observed range of flock sizes. 
+The fit is in both cases measured over the entire season.
 }
 \references{
 Frank, B. M. and P. V. Baret (2013). "Simulating brown trout

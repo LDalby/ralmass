@@ -13,13 +13,21 @@ CalcForageDistFit(Sim = NULL, Obs = NULL, species = NULL)
 \item{Obs}{data.table Same as Sim but field observations.}
 
 \item{species}{character Either Barnacle, Pinkfoot or Greylag.}
+
+\item{measure}{character Either LS or SSSE}
+}
+\value{
+numeric The calculated fit.
 }
 \description{
 Calculate fit between the simulated forage distance distribution to the observed
 forage distance distribution based on the sum of standardized squared 
-errors (SSSE, Frank & Baret 2013). The SSSE is here based on the proportions
-of the forage distances falling into each bin of 10% quantiles of the observed
-range of forage distances. The fit is measured over the entire season.
+errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
+}
+\details{
+The fit is based on the proportions of the forage distances falling
+into each bin of 10% quantiles of the observed range of forage distances.
+ The fit is measured over the entire season.
 }
 \references{
 Frank, B. M. and P. V. Baret (2013). "Simulating brown trout

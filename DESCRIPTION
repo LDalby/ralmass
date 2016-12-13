@@ -18,7 +18,6 @@ Imports:
     stringr,
     RColorBrewer,
     plyr,
-    rgdal,
     sp,
     raster,
     sfsmisc

@@ -15,7 +15,7 @@ EditBat = function(WorkDir = NULL) {
 		stop('ParameterValues.txt missing from work directory')
 	}
 	paramvals = data.table::fread(theparamvalfile)
-	numberofparams = nrow(paramvals[, unique(V1)])
+	numberofparams = length(paramvals[, unique(V1)])
 	runs = nrow(paramvals)/numberofparams
 	# Get the right file in the workdirectory
 	WorkDirContent = dir(WorkDir)
@@ -39,7 +39,6 @@ EditBat = function(WorkDir = NULL) {
 	}
 	# .sh files:
 	if(length(grep('.sh', TheBat)) > 0) {
-	  
 	  TheForLine = paste0('for i in {1..', runs, '}')
 	  index = grep('for i in {', Bat)
 	  if(length(index) == 0) {

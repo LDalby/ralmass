@@ -7,7 +7,7 @@
 AppendWorkDir(WorkDir = NULL, InScript = NULL, OutScript = NULL)
 }
 \arguments{
-\item{WorkDir}{character Path to the work directory with the ALMaSS exe file}
+\item{WorkDir}{character Path to the work directory with the ALMaSS program}
 
 \item{InScript}{character Path to the base script into which the WD is appended}
 

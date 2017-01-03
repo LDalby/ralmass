@@ -40,7 +40,7 @@ EditBat = function(WorkDir = NULL) {
 	# .sh files:
 	if(length(grep('.sh', TheBat)) > 0) {
 	  TheForLine = paste0('for i in {1..', runs, '}')
-	  index = grep('for i in {', Bat)
+	  index = grep('for i in ', Bat)
 	  if(length(index) == 0) {
 	    stop('Cannot find the for loop in the bat file')
 	  }

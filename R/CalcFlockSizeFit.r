@@ -36,7 +36,7 @@ CalcFlockSizeFit =  function(Sim = NULL, Obs = NULL, species = NULL,
 	tabdefault = rep(0,length(obs))
 	names(tabdefault) = names(obs)  # Get the same names as field data
 	tabdefault[match(names(sim), names(tabdefault))] = sim
-	flocksizes = data.table('Sim' = as.numeric(sim), 'Obs' = as.numeric(obs))
+	flocksizes = data.table('Sim' = as.numeric(tabdefault), 'Obs' = as.numeric(obs))
 	if(measure == 'SSSE') 
 	{
 		result = flocksizes[,sum((Sim-Obs)^2/Obs)]

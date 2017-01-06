@@ -10,12 +10,12 @@ EditBat = function(WorkDir = NULL) {
 		stop('Input parameter WorkDir missing')
 	}
 	# Get the number of runs:
-	index = grep('ParameterValues.txt', dir(WorkDir))
-	if(length(index) == 0) {
+	theparamvalfile = file.path(WorkDir, 'ParameterValues.txt')
+	if(!file.exists(theparamvalfile)) {
 		stop('ParameterValues.txt missing from work directory')
 	}
-	paramvals = data.table::fread(paste0(WorkDir, '/','ParameterValues.txt'))
-	numberofparams = nrow(unique(paramvals[, 1, with = FALSE]))
+	paramvals = data.table::fread(theparamvalfile)
+	numberofparams = length(paramvals[, unique(V1)])
 	runs = nrow(paramvals)/numberofparams
 	# Get the right file in the workdirectory
 	WorkDirContent = dir(WorkDir)
@@ -23,17 +23,29 @@ EditBat = function(WorkDir = NULL) {
 	if(length(BatIndex) == 0) {
 		stop('Bat file missing from work directory')
 	}
-	TheBat = paste0(WorkDir, '/', WorkDirContent[BatIndex])
+	TheBat = file.path(WorkDir, WorkDirContent[BatIndex])
 	Bat = readLines(TheBat)
 	if(length(Bat) == 0) {
 		stop('Error reading bat file')
 	}
 	# Edit the line with the for loop
+	# .bat files:
+	if(length(grep('.bat', TheBat)) > 0) {
 	TheForLine = paste0('FOR /L %%A IN (1,1,', runs, ') DO call _02')
 	index = grep('FOR /L %%A IN', Bat)
 	if(length(index) == 0) {
 		stop('Cannot find the for loop in the bat file')
 	}
+	}
+	# .sh files:
+	if(length(grep('.sh', TheBat)) > 0) {
+	  TheForLine = paste0('for i in {1..', runs, '}')
+	  index = grep('for i in ', Bat)
+	  if(length(index) == 0) {
+	    stop('Cannot find the for loop in the bat file')
+	  }
+	}
+	
 	Bat[index] = TheForLine
 	filecon = file(TheBat, open = 'wt')
 	write(Bat, file = filecon)

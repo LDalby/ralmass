@@ -96,8 +96,7 @@ GenerateParams = function (..., write = FALSE, splits = NULL,
 		{
 			temp = df[starts[i]:ends[i],]
 			fname = paste0('ParameterValues', i, '.txt')
-			write.table(temp, file = fname, sep = '\t', quote = FALSE,
-			row.names = FALSE, col.names = FALSE)
+			data.table::fwrite(temp, file = fname, sep = '\t', col.names = FALSE)
 		}
 		cat('Wrote', splits, 'versions of ParameterValues.txt to',
 			getwd(), '\n')
@@ -110,8 +109,7 @@ GenerateParams = function (..., write = FALSE, splits = NULL,
 		if(!is.null(path)){
 		dst = file.path(path, 'ParameterValues.txt')
 		}
-		write.table(df, file = dst, sep = '\t', quote = FALSE,
-			row.names = FALSE, col.names = FALSE)
+		data.table::fwrite(df, file = dst, sep = '\t', col.names = FALSE)
 		cat('Printed following to ParameterValues.txt:\n')
 	}
 	return(df)

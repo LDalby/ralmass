@@ -47,7 +47,7 @@ GenerateParams = function (..., write = FALSE, splits = NULL,
 		nmc[ng0] <- nm[ng0]
 	names(cargs) <- nmc
 	rep.fac <- 1L
-	d <- lengths(args)
+	d <- unlist(lapply(args, FUN = length))
 
 	orep <- prod(d)
 	if (orep == 0L) {

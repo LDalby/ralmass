@@ -110,7 +110,7 @@ GenerateParams = function (..., write = FALSE, splits = NULL,
 		dst = file.path(path, 'ParameterValues.txt')
 		}
 		data.table::fwrite(df, file = dst, sep = '\t', col.names = FALSE)
-		cat(paste('Printed following to ', dst, ':\n'))
+		cat(paste0('Printed following to ', dst, ':\n'))
 	}
 	return(df)
 }

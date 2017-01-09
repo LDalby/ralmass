@@ -25,9 +25,9 @@ EditIni = function(WorkDir = NULL, Model = NULL, StandardProbes = TRUE,
 		stop('Invalid input to argument Model')
 	}
 	if(tolower(Type) == 'gui'){
-		file = paste0(WorkDir, '/','TI_inifile.ini')
+		file = file.path(WorkDir, 'TI_inifile.ini')
 	}
-	file = paste0(WorkDir, '/','BatchALMaSS.ini')
+	file = file.path(WorkDir, 'BatchALMaSS.ini')
 	if(model == 6 & StandardProbes)
 	{
 		content = c('6',

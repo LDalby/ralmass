@@ -9,13 +9,13 @@
 #' @export
 ConvertParam <- function(param = NULL) {
 	if(is.null(param)) {stop('Input argument missing \n')}
-    param = stringr::str_trim(param, side = "both")
-    param = stringr::word(param)
-    switch(EXPR = param,
+	param = stringr::str_trim(param, side = "both")
+	param = stringr::word(param)
+	switch(EXPR = param,
   	# Names of the paramters:
-  		'GOOSE_MINFORAGEOPENNESS' = 'Minimum openness',
-  		'GOOSE_AFTERDARKTIME' = 'Past sunset active time',
-        'BGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Barnacle',
+		'GOOSE_MINFORAGEOPENNESS' = 'Minimum openness',
+		'GOOSE_AFTERDARKTIME' = 'Past sunset active time',
+		'BGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Barnacle',
 		'PFGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Pinkfoot',
 		'GLGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Greylag',
 		'GOOSE_MAXAPPETITESCALER' = 'Max appetite scaler',
@@ -30,6 +30,9 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_MEM_MINMEMVALUE' = 'Memory duration',
 		'GOOSE_GRAINDECAYRATE' = 'Grain decay rate',
 		'GOOSE_ROOSTLEAVEDISTSD' = 'SD of roost leave time distribution',
-        'GOOSE_MEM_EXPECTEDFORAGINGTIME' = 'Expected foraging time'
-        )
+		'GOOSE_MEM_EXPECTEDFORAGINGTIME' = 'Expected foraging time',
+		'GOOSE_FLIGHTCOST_PF' = 'Flight cost - Pinkfoot',
+		'GOOSE_FLIGHTCOST_BG' = 'Flight cost - Barnacle',
+		'GOOSE_FLIGHTCOST_GL' = 'Flight cost - Greylag'
+		)
 }

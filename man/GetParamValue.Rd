@@ -4,12 +4,12 @@
 \alias{GetParamValue}
 \title{Get the value of a config variable}
 \usage{
-GetParamValue(config = NULL, param = NULL)
+GetParamValue(param = NULL, config = NULL)
 }
 \arguments{
-\item{config}{character Path to the file to read start and leave date from}
-
 \item{param}{character The name of the config variables}
+
+\item{config}{character Path to the file to read start and leave date from}
 }
 \value{
 The value of the config parameter
@@ -17,4 +17,3 @@ The value of the config parameter
 \description{
 Return the value of a config variable in a specified ALMaSS config file.
 }
-

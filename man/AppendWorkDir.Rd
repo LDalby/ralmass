@@ -17,4 +17,3 @@ usually be the same name as the base script.}
 \description{
 Append work directory paths to already excisting scripts
 }
-

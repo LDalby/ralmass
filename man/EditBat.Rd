@@ -12,4 +12,3 @@ EditBat(WorkDir = NULL)
 \description{
 Edit a bat file to reflect the correct number of runs in a scenario
 }
-

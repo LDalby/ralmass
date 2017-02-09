@@ -54,4 +54,3 @@ all hunters, set \code{huntersubset = 'all'}. The 403 occasional hunters
 can be modified by using \code{huntersubset = 'occasional'} and the expert
 group by \code{huntersubset = 'experts'}
 }
-

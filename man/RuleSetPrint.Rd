@@ -15,4 +15,3 @@ character The rule set number and description
 \description{
 Print rule set number and description
 }
-

@@ -24,4 +24,3 @@ A nice plot
 \description{
 Plot the forage available as grazing and grain available to geese in ALMaSS
 }
-

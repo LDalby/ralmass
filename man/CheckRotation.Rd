@@ -17,4 +17,3 @@ ensure that crops that are undersown other crops are valid combinations
 (some crops are never grown with an undersown crop)
 The function will print the results of the check to the console.
 }
-

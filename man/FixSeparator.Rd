@@ -19,4 +19,3 @@ Some tables get exported from ArcGis using commas as thousand separator
 and are therefore imported as character. This function simply removes the 
 commas.
 }
-

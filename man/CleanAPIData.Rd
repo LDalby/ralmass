@@ -15,4 +15,3 @@ The cleaned up data.
 \description{
 Clean API field data and calculate weights from API scores.
 }
-

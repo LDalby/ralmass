@@ -33,4 +33,3 @@ in ALMaSS directly (also works the other way around). Useful when importing
 For Vejlerne there are currently two working maps: VejlerneTest
 (10000*7000) and VejlerneBigMap (36000*24000).
 }
-

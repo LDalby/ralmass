@@ -18,4 +18,3 @@ A data.frame with two columns. One is the timestep, the other the density
 Calculate the average density of animals in the landscape based on output
 from the CIPEgrid probe.
 }
-

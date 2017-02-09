@@ -17,4 +17,3 @@ Calculate some simple statistics based on the attribute table.
 The purpose of this function is mostly to enable easy checks of things
 like total cell numbers and types of elements.
 }
-

@@ -29,4 +29,3 @@ This function is based on the answer to this CV question:
 http://stats.stackexchange.com/questions/97596/how-to-calculate-overlap
 -between-empirical-probability-densities
 }
-

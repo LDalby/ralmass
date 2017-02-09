@@ -20,4 +20,3 @@ matching the ones that are scored in the field
 \details{
 This function is designed to be used in combination with 'sapply'
 }
-

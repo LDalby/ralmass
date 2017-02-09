@@ -20,4 +20,3 @@ A nice plot
 \description{
 Plot the frequency of use of particular habitat types
 }
-

@@ -6,7 +6,7 @@
 #' @param param character The name of the config variables
 #' @return The value of the config parameter
 #' @export 
-	GetParamValue = function(config = NULL, param = NULL) {
+	GetParamValue = function(param = NULL, config = NULL) {
 		if(is.null(param)){
 			stop('Input parameter param missing')
 		}

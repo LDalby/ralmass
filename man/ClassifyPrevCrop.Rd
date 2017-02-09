@@ -21,4 +21,3 @@ This function handles the special cases where crop type changes before the
 actual farm management takes place in the simulation.
 The function is designed to be used in combination with 'sapply'
 }
-

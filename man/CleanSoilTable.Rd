@@ -16,4 +16,3 @@ for use in ALMaSS.
 \description{
 The function will remove commas used as thousand seperator, re-arrange columns and add missing ones.
 }
-

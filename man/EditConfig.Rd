@@ -17,4 +17,3 @@ EditConfig(file = NULL, config = NULL, value = NULL)
 Edit a config file with a specific config variable and value. The value
 simply added to the end of the file.
 }
-

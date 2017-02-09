@@ -18,7 +18,8 @@ Imports:
     stringr,
     RColorBrewer,
     plyr,
+    rgdal,
     sp,
     raster,
     sfsmisc
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

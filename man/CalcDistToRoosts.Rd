@@ -32,4 +32,3 @@ Calculate the distance from fields to goose roosts (in this case)
 Using the centroids from the polyref file distances can be calculated 
 outside of ALMaSS.
 }
-

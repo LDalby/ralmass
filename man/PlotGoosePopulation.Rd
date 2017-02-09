@@ -17,4 +17,3 @@ A nice plot
 \description{
 Plot the number of geese per species and type
 }
-

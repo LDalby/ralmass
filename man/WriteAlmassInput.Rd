@@ -26,4 +26,3 @@ actual content of the colummns. The file is a tab delimeted txt file.
 A few of the older ALMaSS input files do not contain headers. This can be 
 switched on or of using the headers argument.
 }
-

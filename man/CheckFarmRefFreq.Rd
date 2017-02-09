@@ -18,4 +18,3 @@ Do a check of the frequencies of individual farm reference numbers.
 The function summarise the frequency across the hunting locations and return
 a table ready to plot.
 }
-

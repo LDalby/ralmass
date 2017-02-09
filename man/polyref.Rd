@@ -19,4 +19,3 @@ The table contains 1000 rows and 4 columns
   \item LINK. The type of landscape element.
  }
 }
-

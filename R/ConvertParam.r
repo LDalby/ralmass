@@ -32,7 +32,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_ROOSTLEAVEDISTSD' = 'SD of roost leave time distribution',
 		'GOOSE_MEM_EXPECTEDFORAGINGTIME' = 'Expected foraging time',
 		'GOOSE_FLIGHTCOST_PF' = 'Flight cost - Pinkfoot',
-		'GOOSE_FLIGHTCOST_BG' = 'Flight cost - Barnacle',
+		'GOOSE_FLIGHTCOST_BN' = 'Flight cost - Barnacle',
 		'GOOSE_FLIGHTCOST_GL' = 'Flight cost - Greylag'
 		)
 }

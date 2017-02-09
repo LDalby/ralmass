@@ -55,4 +55,3 @@ Hoye, T. T., Skov, F. & Topping, C.J. (2012). Interpreting
 outputs of agent-based models using abundance-occupancy relationships. 
 Ecological Indicators 20: 221-227.
 }
-

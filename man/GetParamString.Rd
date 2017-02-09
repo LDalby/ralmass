@@ -17,4 +17,3 @@ The character string of the config parameter
 Return the character string of a config variable in a specified
  ALMaSS config file.
 }
-

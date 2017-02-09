@@ -19,4 +19,3 @@ A nice plot
 \description{
 Plot the results from the TerritoryProbe (currently only implemented in the Dormouse code)
 }
-

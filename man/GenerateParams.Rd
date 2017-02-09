@@ -41,4 +41,3 @@ val2 = seq(10, 50, length.out = 5)
 GenerateParams('GOOSE_MINFORAGEOPENNESS' = val,
 'HUNTERS_MAXDENSITY' = val2, write = FALSE)
 }
-

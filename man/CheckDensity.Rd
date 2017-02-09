@@ -21,4 +21,3 @@ logical TRUE if all densities legal, FALSE otherwise
 Do a check of the densities of hunters per farm. 
 This is just ensuring that the density criteria is not broken.
 }
-

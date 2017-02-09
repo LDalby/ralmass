@@ -31,4 +31,3 @@ poly2 = CleanAttrTable(polyref)
 str(poly2)  # Only the three needed columns and in the right order
 tail(poly2)  # Comma issue gone
 }
-

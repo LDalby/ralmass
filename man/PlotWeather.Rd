@@ -22,4 +22,3 @@ Plot an Almass weather file or a subset of it
 \details{
 If from or to are left blank the entire range of data is plotted
 }
-

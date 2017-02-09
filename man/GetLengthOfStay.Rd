@@ -19,4 +19,3 @@ Read the config file and figure out how many days geese should stay in the
 simulation. The answer is corrected for the situation where the model exit
 day is set before the leave date for the goose species in question.
 }
-

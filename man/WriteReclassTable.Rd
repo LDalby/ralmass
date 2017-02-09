@@ -18,4 +18,3 @@ written (including the name and extension of the file, .txt)}
 Write a reclassification table to be used with the arcpy tool
  ReclassByASCIIFile.
 }
-

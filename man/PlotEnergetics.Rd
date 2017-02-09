@@ -25,4 +25,3 @@ The energetics output can be very large, so please use the fread function
  when loading the data. Currently only implemented for pinkfeet due to lack
  of field data on barnacle and greylag.
 }
-

@@ -21,4 +21,3 @@ A data.table with the classifed habitat use.
 Classify animal habitat use from what ALMaSS uses into categories
 matching the ones that are scored in the field
 }
-

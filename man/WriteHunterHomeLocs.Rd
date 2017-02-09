@@ -19,4 +19,3 @@ A tab separated text file formatted according to the requirements
 \description{
 Write a file with hunter home locations
 }
-

@@ -25,4 +25,3 @@ Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
  demogenetics in a river/nursery brook system: The individual-based
  model DemGenTrout." Ecological Modelling 248: 184-202.
 }
-

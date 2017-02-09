@@ -28,4 +28,3 @@ used. This will interpolate the value from the nearest four cells from
 either the centroid (if spobject is a SpatialPolygon) or the point (if 
 spobject is a SpatialPoint)
 }
-

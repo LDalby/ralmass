@@ -22,4 +22,3 @@ A tab separated text file formatted according to the requirements for a polygon 
 \description{
 Write a polyref file to a text file ready for loading in ALMaSS.
 }
-

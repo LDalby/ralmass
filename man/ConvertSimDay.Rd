@@ -17,4 +17,3 @@ The calendar date
 \description{
 Return the calendar date from a simulation day number
 }
-

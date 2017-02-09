@@ -15,4 +15,3 @@ character param plus the type added in parantheses
 \description{
 Add the input parameter type to the string of just the parameter name.
 }
-

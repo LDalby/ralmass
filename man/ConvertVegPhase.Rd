@@ -15,4 +15,3 @@ The vegphase name
 \description{
 Spell out the full name of the vegphase from the numeric code
 }
-

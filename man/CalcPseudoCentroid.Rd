@@ -20,4 +20,3 @@ Be aware that this is only an approximation. With funny shaped polygons
 you might get strange results. Particularly if the vertices are not
 are not evenly spaced.
 }
-

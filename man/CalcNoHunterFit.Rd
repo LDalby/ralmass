@@ -20,4 +20,3 @@ This function is only used to preform the test on scenarios already run.
 The batchr.r scripts runs the test on the fly. Added to ralmass just to 
 keep track of things. Will probably be removed further down.
 }
-

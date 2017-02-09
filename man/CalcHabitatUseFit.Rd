@@ -22,4 +22,3 @@ Calculate the fit between habitat use scored in the field
 and habitat use based on the simulations. The timing of the counts in 
 the simulation is controlled by the config variable GOOSE_TIMEDCOUNTS
 }
-

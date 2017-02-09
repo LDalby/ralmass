@@ -35,4 +35,3 @@ function.
 Note: you should read the results file using the fread function in the data.table package
 It is very fast - you will not regret it.
 }
-

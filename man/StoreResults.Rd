@@ -17,4 +17,3 @@ This function copies and renames the ParameterFittingResults.txt
 file to a user specified location. The original file name will padded by
 the parent directory name (leading) and the output from Sys.Date() (trailing)
 }
-

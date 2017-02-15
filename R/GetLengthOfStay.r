@@ -14,12 +14,12 @@ GetLengthOfStay = function(config = NULL, species = NULL) {
 	if(tolower(species) == 'barnacle'){ sp = 'BN'}
 	# Get leavedate
 	matchstring = paste('GOOSE', sp, 'LEAVINGDATEEND', sep = '_')
-	leavedate = GetParamValue(config, matchstring)
+	leavedate = GetParamValue(param = matchstring, config = config)
 	# Get startdate
 	matchstring = paste('GOOSE', sp, 'ARRIVEDATESTART', sep = '_')
-	startdate = GetParamValue(config, matchstring)
+	startdate = GetParamValue(param = matchstring, config = config)
 	# Get exitday
-	exitday = GetParamValue(config, 'MODELEXITDAY')
+	exitday = GetParamValue(param = 'MODELEXITDAY', config = config)
 	exitday = exitday %% 365  # To get day in year
 	if(leavedate < exitday) 
 	{

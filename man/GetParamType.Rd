@@ -10,7 +10,7 @@ GetParamType(param = NULL)
 \item{param}{character The input parameter}
 }
 \value{
-character param plus the type added in parantheses
+character param plus the type added in parentheses
 }
 \description{
 Add the input parameter type to the string of just the parameter name.

@@ -1,6 +1,9 @@
-#' Edit bat file
+#' Edit bat file or shell script
 #'
-#' Edit a bat file to reflect the correct number of runs in a scenario
+#' Edit a bat file or shell script to reflect the correct number of runs
+#' in a scenario. This function requires the ParameterValues.txt file
+#' to be present in WorkDir. The function reads the number of runs
+#' from that file.
 #'
 #' @param WorkDir character Path to the work directory with the ALMaSS exe file
 #' @export

@@ -3,18 +3,18 @@
 #' Add the input parameter type to the string of just the parameter name.
 #' 
 #' @param param character The input parameter
-#' @return character param plus the type added in parantheses
+#' @return character param plus the type added in parentheses
 #' @export
 GetParamType <- function(param = NULL) {
 	if(is.null(param)) {stop('Input argument missing \n')}
     param = stringr::str_trim(param, side = "both")
     switch(EXPR = param,
-  	# Names of the paramters:
-  		'GOOSE_MINFORAGEOPENNESS' = 'GOOSE_MINFORAGEOPENNESS (float)',
-  		'GOOSE_AFTERDARKTIME' = 'GOOSE_AFTERDARKTIME (int)',
-        'BGOOSE_FOLLOWINGLIKELYHOOD' = 'BGOOSE_FOLLOWINGLIKELYHOOD (int)',
-		'PFGOOSE_FOLLOWINGLIKELYHOOD' = 'PFGOOSE_FOLLOWINGLIKELYHOOD (int)',
-		'GLGOOSE_FOLLOWINGLIKELYHOOD' = 'GLGOOSE_FOLLOWINGLIKELYHOOD (int)',
+    # Names of the paramters:
+    	'GOOSE_MINFORAGEOPENNESS' = 'GOOSE_MINFORAGEOPENNESS (float)',
+    	'GOOSE_AFTERDARKTIME' = 'GOOSE_AFTERDARKTIME (int)',
+        'GOOSE_FOLLOWINGLIKELYHOOD_BN' = 'GOOSE_FOLLOWINGLIKELYHOOD_BN (int)',
+		'GOOSE_FOLLOWINGLIKELYHOOD_PF' = 'GOOSE_FOLLOWINGLIKELYHOOD_PF (int)',
+		'GOOSE_FOLLOWINGLIKELYHOOD_GL' = 'GOOSE_FOLLOWINGLIKELYHOOD_GL (int)',
 		'GOOSE_MAXAPPETITESCALER' = 'GOOSE_MAXAPPETITESCALER (float)',
 		'GOOSE_MAXENERGYRESERVEPROPORTION' = 'GOOSE_MAXENERGYRESERVEPROPORTION (float)',
 		'GOOSE_LEAVINGTHRESHOLD' = 'GOOSE_LEAVINGTHRESHOLD (float)',

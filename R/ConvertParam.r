@@ -15,9 +15,9 @@ ConvertParam <- function(param = NULL) {
   	# Names of the paramters:
 		'GOOSE_MINFORAGEOPENNESS' = 'Minimum openness',
 		'GOOSE_AFTERDARKTIME' = 'Past sunset active time',
-		'BGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Barnacle',
-		'PFGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Pinkfoot',
-		'GLGOOSE_FOLLOWINGLIKELYHOOD' = 'Following likelyhood - Greylag',
+		'GOOSE_FOLLOWINGLIKELYHOOD_BN' = 'Following likelyhood - Barnacle',
+		'GOOSE_FOLLOWINGLIKELYHOOD_PF' = 'Following likelyhood - Pinkfoot',
+		'GOOSE_FOLLOWINGLIKELYHOOD_GL' = 'Following likelyhood - Greylag',
 		'GOOSE_MAXAPPETITESCALER' = 'Max appetite scaler',
 		'GOOSE_MAXENERGYRESERVEPROPORTION' = 'Max energy reserve proportion',
 		'GOOSE_LEAVINGTHRESHOLD' = 'Leaving threshold',

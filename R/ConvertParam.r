@@ -51,6 +51,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_THERMALCONSTANTA_BN' = 'Lower critical temperature - Barnacle',
 		'GOOSE_THERMALCONSTANTA_PF' = 'Lower critical temperature - Pinkfoot',
 		'GOOSE_THERMALCONSTANTA_GL' = 'Lower critical temperature - Greylag',
+		'GOOSE_TIMEDCOUNTS' = 'Hour for timed counts (from sunrise)',
 		'GOOSE_THERMALCONSTANTB' = 'Thermal regulation cost constant B'
 		)
 }

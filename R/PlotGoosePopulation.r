@@ -7,7 +7,7 @@
 #' @return A nice plot
 #' @export
 PlotGoosePopulation = function(data, dates = FALSE){
-	melted = data.table::melt(data, id.vars = c('Day', 'SeasonNumber'),
+	melted = data.table::melt(data, id.vars = c('Day', 'Season'),
 		variable.name = 'GooseType', value.name = 'Numbers')
 	melted = melted[Numbers != 0,]
 	if(dates) {

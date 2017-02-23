@@ -2,7 +2,7 @@
 % Please edit documentation in R/EditBat.r
 \name{EditBat}
 \alias{EditBat}
-\title{Edit bat file}
+\title{Edit bat file or shell script}
 \usage{
 EditBat(WorkDir = NULL)
 }
@@ -10,5 +10,8 @@ EditBat(WorkDir = NULL)
 \item{WorkDir}{character Path to the work directory with the ALMaSS exe file}
 }
 \description{
-Edit a bat file to reflect the correct number of runs in a scenario
+Edit a bat file or shell script to reflect the correct number of runs
+in a scenario. This function requires the ParameterValues.txt file
+to be present in WorkDir. The function reads the number of runs
+from that file.
 }

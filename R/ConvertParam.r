@@ -20,6 +20,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_FOLLOWINGLIKELYHOOD_GL' = 'Following likelyhood - Greylag',
 		'GOOSE_MAXAPPETITESCALER' = 'Max appetite scaler',
 		'GOOSE_MAXENERGYRESERVEPROPORTION' = 'Max energy reserve proportion',
+		'GOOSE_INITIALENERGYRESERVEPROPORTION' = 'Initial energy reserve proportion',
 		'GOOSE_LEAVINGTHRESHOLD' = 'Leaving threshold',
 		'GOOSE_FORAGEDIST_BN' = 'Max foraging distance from roost - Barnacle',
 		'GOOSE_FORAGEDIST_PF' = 'Max foraging distance from roost- Pinkfoot',

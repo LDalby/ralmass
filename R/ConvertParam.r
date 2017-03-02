@@ -55,6 +55,9 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_TIMEDCOUNTS' = 'Hour for timed counts (from sunrise)',
 		'GOOSE_DAYTIMEBMRMULTIPLIER' = 'Multiple of BMR spent during daytime (DEB calculations)',
 		'GOOSE_NIGHTTIMEBMRMULTIPLIER' = 'Multiple of BMR spent during nighttime (DEB calculations)',
-		'GOOSE_THERMALCONSTANTB' = 'Thermal regulation cost constant B'
+		'GOOSE_THERMALCONSTANTB' = 'Thermal regulation cost constant B',
+		'GOOSE_ROOSTCHANGECHANCE_PF' = 'Chance of changing roost - Pinkfoot',
+		'GOOSE_ROOSTCHANGECHANCE_GL' = 'Chance of changing roost - Greylag',
+		'GOOSE_ROOSTCHANGECHANCE_BN' = 'Chance of changing roost - Barnacle'
 		)
 }

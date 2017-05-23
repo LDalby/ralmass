@@ -16,6 +16,14 @@ CalcWeightFit = function(Sim = NULL, Field = NULL, measure = NULL) {
 	{
 		stop('Input parameter missing')
 	}
+	if(!data.table::is.data.table(Sim)) 
+	{
+		Sim = data.table::as.data.table(Sim)
+	}
+	if(!data.table::is.data.table(Field)) 
+	{
+		Field = data.table::as.data.table(Field)
+	}
 	Sim[, Date:=as.Date(Day-365, origin = '2012-01-01')]
 	Sim = Sim[data.table::month(Date) %in% c(9:12,1:3)]
 	Sim[, Week:=data.table::week(as.Date(DayInYear, origin = '2012-01-01'))]

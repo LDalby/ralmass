@@ -18,6 +18,7 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 	{
 		stop('Currently only implemented for geese')
 	}
+	data = data.table::as.data.table(data)
 	if(tolower(species) == 'goose')
 	{
 		data[,c('HabitatUsePF', 'HabitatUseGL', 'HabitatUseBN'):='foo']
@@ -124,6 +125,6 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 	data[HabitatUseBN == 'foo', HabitatUseBN:=NA]
 	data[HabitatUsePF == 'foo', HabitatUsePF:=NA]
 	data[HabitatUseGL == 'foo', HabitatUseGL:=NA]
-	return(data)
+	return(as_tibble(data))
 	}
 }

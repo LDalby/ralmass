@@ -49,6 +49,7 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 		Roost = roost[Type == species[i],]  # Get the roost for the species
 		if(fieldobs) {
 			Fields = fields[Species == species[i], .(CentroidX, CentroidY)]
+			DT = fields[Species == species[i],.(PolyRefNum)]
 		}
 		if(!fieldobs) {
 			spobs = eval(as.name(species[i]), fields)

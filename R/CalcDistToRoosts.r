@@ -32,6 +32,10 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 	{
 		fields = data.table::as.data.table(fields)
 	}
+	if(!data.table::is.data.table(polyref)) 
+	{
+		polyref = data.table::as.data.table(polyref)
+	}
 	setnames(roost, c('Type', 'CentroidX', 'CentroidY'))
 	if(!all(roost[, Type] %in% species)) {
 		roost[, Type:=sapply(Type, FUN = SwapType)]

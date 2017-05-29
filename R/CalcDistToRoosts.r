@@ -15,8 +15,7 @@
 #' @param species character A vector of species names for which the distances should be 
 #' calculated for. Either 'Barnacle', 'Pinkfoot' or 'Greylag'
 #' @return data.table A data.table with the polyrefnumber or if fieldobs then
-#'  the PolyID (renamed to PolyRefNum), distances for each roost and a column with
-#'  the shortest distance.
+#'  PolyID, distances for each roost and a column with the shortest distance.
 #' @export
 CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyref = NULL, species = NULL) {
 	if(any(is.null(roost),is.null(fields),is.null(fieldobs),is.null(species))){
@@ -49,7 +48,7 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 		Roost = roost[Type == species[i],]  # Get the roost for the species
 		if(fieldobs) {
 			Fields = fields[Species == species[i], .(CentroidX, CentroidY)]
-			DT = fields[Species == species[i],.(PolyRefNum)]
+			DT = fields[Species == species[i],.(PolyID)]
 		}
 		if(!fieldobs) {
 			spobs = eval(as.name(species[i]), fields)

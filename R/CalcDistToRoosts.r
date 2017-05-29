@@ -24,6 +24,14 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 	if(!fieldobs && is.null(polyref)) {
 		stop('Provide polyref file when fieldobs = FALSE')
 	}
+	if(!data.table::is.data.table(roost)) 
+	{
+		roost = data.table::as.data.table(roost)
+	}
+	if(!data.table::is.data.table(fields)) 
+	{
+		fields = data.table::as.data.table(fields)
+	}
 	setnames(roost, c('Type', 'CentroidX', 'CentroidY'))
 	if(!all(roost[, Type] %in% species)) {
 		roost[, Type:=sapply(Type, FUN = SwapType)]
@@ -65,7 +73,7 @@ CalcDistToRoosts = function(roost = NULL, fields = NULL, fieldobs = NULL, polyre
 	{
 		result[, Type:='Simulated']
 	}
-	return(result)
+	return(tibble::as_tibble(result))
 }
 
 # Helper function

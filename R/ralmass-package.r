@@ -9,4 +9,5 @@
 #' @import sp
 #' @import gridExtra
 #' @import ggplot2
+#' @import tibble
 NULL

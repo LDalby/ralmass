@@ -20,5 +20,6 @@ Imports:
     plyr,
     sp,
     raster,
-    sfsmisc
+    sfsmisc,
+    tibble
 RoxygenNote: 6.0.1

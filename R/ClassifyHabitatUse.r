@@ -125,6 +125,6 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 	data[HabitatUseBN == 'foo', HabitatUseBN:=NA]
 	data[HabitatUsePF == 'foo', HabitatUsePF:=NA]
 	data[HabitatUseGL == 'foo', HabitatUseGL:=NA]
-	return(as_tibble(data))
+	return(tibble::as_tibble(data))
 	}
 }

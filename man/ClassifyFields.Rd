@@ -4,7 +4,7 @@
 \alias{ClassifyFields}
 \title{Classify fields based on the last digit in the farm reference number}
 \usage{
-ClassifyFields(polyref, firstfield = 1e+05)
+ClassifyFields(polyref, firstfield = 100000)
 }
 \arguments{
 \item{polyref}{data.frame A dataframe which was produced using \code{\link{CleanAttrTable}}.}

@@ -1,7 +1,7 @@
 #' Add type to input parameter string
 #'
 #' Add the input parameter type to the string of just the parameter name.
-#' 
+#'
 #' @param param character The input parameter
 #' @return character param plus the type added in parentheses
 #' @export
@@ -17,6 +17,7 @@ GetParamType <- function(param = NULL) {
 		'GOOSE_FOLLOWINGLIKELYHOOD_GL' = 'GOOSE_FOLLOWINGLIKELYHOOD_GL (int)',
 		'GOOSE_MAXAPPETITESCALER' = 'GOOSE_MAXAPPETITESCALER (float)',
 		'GOOSE_MAXENERGYRESERVEPROPORTION' = 'GOOSE_MAXENERGYRESERVEPROPORTION (float)',
+		'GOOSE_INITIALENERGYRESERVEPROPORTION' = 'GOOSE_INITIALENERGYRESERVEPROPORTION (float)',
 		'GOOSE_LEAVINGTHRESHOLD' = 'GOOSE_LEAVINGTHRESHOLD (float)',
 		'GOOSE_FORAGEDIST_BN' = 'GOOSE_FORAGEDIST_BN (float)',
 		'GOOSE_FORAGEDIST_PF' = 'GOOSE_FORAGEDIST_PF (float)',

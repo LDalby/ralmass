@@ -1,9 +1,9 @@
 #' Convert ALMaSS config parameter to a meaningful character string
 #'
 #' Convert ALMaSS config parameter to a meaningful character string. This
-#' can be useful when doing plots and generating labels and titles 
+#' can be useful when doing plots and generating labels and titles
 #' automatically.
-#' 
+#'
 #' @param param character The input parameter
 #' @return character String with more meaningful explanation
 #' @export
@@ -20,6 +20,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_FOLLOWINGLIKELYHOOD_GL' = 'Following likelyhood - Greylag',
 		'GOOSE_MAXAPPETITESCALER' = 'Max appetite scaler',
 		'GOOSE_MAXENERGYRESERVEPROPORTION' = 'Max energy reserve proportion',
+		'GOOSE_INITIALENERGYRESERVEPROPORTION' = 'Initial energy reserve proportion',
 		'GOOSE_LEAVINGTHRESHOLD' = 'Leaving threshold',
 		'GOOSE_FORAGEDIST_BN' = 'Max foraging distance from roost - Barnacle',
 		'GOOSE_FORAGEDIST_PF' = 'Max foraging distance from roost- Pinkfoot',

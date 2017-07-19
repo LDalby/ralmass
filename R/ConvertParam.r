@@ -58,6 +58,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_THERMALCONSTANTB' = 'Thermal regulation cost constant B',
 		'GOOSE_ROOSTCHANGECHANCE_PF' = 'Chance of changing roost - Pinkfoot',
 		'GOOSE_ROOSTCHANGECHANCE_GL' = 'Chance of changing roost - Greylag',
-		'GOOSE_ROOSTCHANGECHANCE_BN' = 'Chance of changing roost - Barnacle'
+		'GOOSE_ROOSTCHANGECHANCE_BN' = 'Chance of changing roost - Barnacle',
+		"GOOSE_DIST_WEIGHTING_POWER" = "Decay constant. Probability as a function of distance"
 		)
 }

@@ -1,15 +1,15 @@
 #' Calculate the fit of the simulated flock size distribution to the observed
 #' flock size distribution
-#' 
+#'
 #' Calculate fit between the simulated flock size distribution to the observed
-#' flock size distribution based on the sum of standardized squared 
+#' flock size distribution based on the sum of standardized squared
 #' errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
-#' 
+#'
 #' The fit is measured on the proportions of the flock sizes falling into
-#' each bin of 10% quantiles of the observed range of flock sizes. 
+#' each bin of 10% quantiles of the observed range of flock sizes.
 #' The fit is in both cases measured over the entire season.
-#' 
-#' @param Sim data.table A data.table with a columns identifying the species 
+#'
+#' @param Sim data.table A data.table with a columns identifying the species
 #' and a column with each flock observation from the simulation.
 #' @param Obs data.table Same as Sim but field observations.
 #' @param species character Either Barnacle, Pinkfoot or Greylag.
@@ -21,13 +21,19 @@
 #' @export
 CalcFlockSizeFit =  function(Sim = NULL, Obs = NULL, species = NULL,
 							 measure = NULL) {
-	if(any(is.null(Sim), is.null(Obs), is.null(species), is.null(measure)))	 
+	if (any(is.null(Sim), is.null(Obs), is.null(species), is.null(measure)))
 	{
 		stop('Input parameter missing')
 	}
-	tmp = Obs[Species == species,Numbers]
+  if (!is.data.table(Obs)) {
+    Obs = data.table::as.data.table(Obs)
+  }
+  tmp = Obs[Species == species,Numbers]
 	vec = quantile(tmp, probs = seq(.1,.9,.1))
 	flockobs = findInterval(tmp, vec = vec)
+	if (!is.data.table(Sim)) {
+	  Sim = data.table::as.data.table(Sim)
+	}
 	tmpsim = Sim[Species == paste0(species,'Timed'),Numbers]
 	flocksim = findInterval(tmpsim, vec = vec)
 
@@ -37,18 +43,18 @@ CalcFlockSizeFit =  function(Sim = NULL, Obs = NULL, species = NULL,
 	names(tabdefault) = names(obs)  # Get the same names as field data
 	tabdefault[match(names(sim), names(tabdefault))] = sim
 	flocksizes = data.table('Sim' = as.numeric(tabdefault), 'Obs' = as.numeric(obs))
-	if(measure == 'SSSE') 
+	if (measure == 'SSSE')
 	{
-		result = flocksizes[,sum((Sim-Obs)^2/Obs)]
+		result = flocksizes[,sum((Sim - Obs)^2/Obs)]
 	}
-	if(measure == 'LS') 
+	if (measure == 'LS')
 	{
-		result = flocksizes[,1-sum((Sim-Obs)^2)]
-		if(result > 1 | result < 0) 
+		result = flocksizes[,1 - sum((Sim - Obs)^2)]
+		if (result > 1 | result < 0)
 		{
 			stop('0 > least squares fit 1 <')  # Should be between 0 and 1
 		}
 	}
-	
+
 	return(result)
 }

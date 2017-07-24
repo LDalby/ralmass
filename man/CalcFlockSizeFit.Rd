@@ -8,7 +8,7 @@ flock size distribution}
 CalcFlockSizeFit(Sim = NULL, Obs = NULL, species = NULL, measure = NULL)
 }
 \arguments{
-\item{Sim}{data.table A data.table with a columns identifying the species 
+\item{Sim}{data.table A data.table with a columns identifying the species
 and a column with each flock observation from the simulation.}
 
 \item{Obs}{data.table Same as Sim but field observations.}
@@ -22,12 +22,12 @@ numeric The calculated fit.
 }
 \description{
 Calculate fit between the simulated flock size distribution to the observed
-flock size distribution based on the sum of standardized squared 
+flock size distribution based on the sum of standardized squared
 errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
 }
 \details{
 The fit is measured on the proportions of the flock sizes falling into
-each bin of 10% quantiles of the observed range of flock sizes. 
+each bin of 10% quantiles of the observed range of flock sizes.
 The fit is in both cases measured over the entire season.
 }
 \references{

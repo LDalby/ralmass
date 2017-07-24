@@ -22,7 +22,7 @@ numeric The calculated fit.
 }
 \description{
 Calculate fit between the simulated forage distance distribution to the observed
-forage distance distribution based on the sum of standardized squared 
+forage distance distribution based on the sum of standardized squared
 errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
 }
 \details{

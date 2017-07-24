@@ -14,6 +14,6 @@ character String with more meaningful explanation
 }
 \description{
 Convert ALMaSS config parameter to a meaningful character string. This
-can be useful when doing plots and generating labels and titles 
+can be useful when doing plots and generating labels and titles
 automatically.
 }

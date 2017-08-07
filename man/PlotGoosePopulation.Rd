@@ -4,7 +4,7 @@
 \alias{PlotGoosePopulation}
 \title{Plot goose population data}
 \usage{
-PlotGoosePopulation(data, dates = FALSE)
+PlotGoosePopulation(data)
 }
 \arguments{
 \item{data}{tibble The ALMaSS data file GoosePopulationData.txt}

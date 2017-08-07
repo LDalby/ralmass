@@ -7,7 +7,7 @@
 #' @export
 PlotGoosePopulation = function(data){
 	# Remodel:
-  molten <- tidyr::gather_(data, gather_cols = c("Day", "SeasonNumber"),
+  molten <- tidyr::gather_(data, gather_cols = c("Day", "Season"),
 		key_col = "GooseType", value_col = "Numbers") %>%
 	  dplyr::filter(Numbers > 0) %>%
     dplyr::mutate(Date = as.Date(Day, origin = '2010-01-01')) %>%

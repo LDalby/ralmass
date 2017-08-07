@@ -5,7 +5,7 @@
 #' @param data tibble The ALMaSS data file GoosePopulationData.txt
 #' @return A nice plot
 #' @export
-PlotGoosePopulation = function(data, dates = FALSE){
+PlotGoosePopulation = function(data){
 	# Remodel:
   molten <- tidyr::gather_(data, gather_cols = c("Day", "SeasonNumber"),
 		key_col = "GooseType", value_col = "Numbers") %>%

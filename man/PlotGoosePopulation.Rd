@@ -7,9 +7,7 @@
 PlotGoosePopulation(data, dates = FALSE)
 }
 \arguments{
-\item{data}{data.table The ALMaSS data file GoosePopulationData.txt}
-
-\item{dates}{logical Should we plot day numbers as dates?}
+\item{data}{tibble The ALMaSS data file GoosePopulationData.txt}
 }
 \value{
 A nice plot

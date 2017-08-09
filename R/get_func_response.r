@@ -19,6 +19,10 @@ get_func_resp <- function(dens = NULL, resp = NULL, species = NULL) {
   stopifnot(data.table::is.data.table(resp), data.table::haskey(resp))
   stopifnot(all.equal(names(resp), c("x", "y")))
   # Okay, let's calculate the response:
+  if (dens == 0.0) {
+    return(0.0)
+  }
+  else({
   the_y <- resp[J(dens), roll = "nearest"][,y]
   grain <- the_y * 17.67 * 0.695 * 60
   if (species == "Greylag") {
@@ -28,4 +32,5 @@ get_func_resp <- function(dens = NULL, resp = NULL, species = NULL) {
     grain <- grain * 0.79  # down scale for barnies
   }
   return(grain)
+  })
 }

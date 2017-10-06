@@ -19,5 +19,6 @@ Imports:
     RColorBrewer,
     plyr,
     sfsmisc,
-    tibble
+    tibble,
+    tidyr
 RoxygenNote: 6.0.1

@@ -4,12 +4,10 @@
 \alias{PlotGoosePopulation}
 \title{Plot goose population data}
 \usage{
-PlotGoosePopulation(data, dates = FALSE)
+PlotGoosePopulation(data)
 }
 \arguments{
-\item{data}{data.table The ALMaSS data file GoosePopulationData.txt}
-
-\item{dates}{logical Should we plot day numbers as dates?}
+\item{data}{tibble The ALMaSS data file GoosePopulationData.txt}
 }
 \value{
 A nice plot

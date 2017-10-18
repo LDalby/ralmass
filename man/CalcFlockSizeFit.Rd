@@ -5,33 +5,25 @@
 \title{Calculate the fit of the simulated flock size distribution to the observed
 flock size distribution}
 \usage{
-CalcFlockSizeFit(Sim = NULL, Obs = NULL, species = NULL, measure = NULL)
+CalcFlockSizeFit(sim = NULL, obs = NULL, species = NULL)
 }
 \arguments{
-\item{Sim}{data.table A data.table with a columns identifying the species
+\item{sim}{numeric A vector of flock sizes from the simulation}
+
+\item{obs}{tibble  A tibble with a columns identifying the species
 and a column with each flock observation from the simulation.}
 
-\item{Obs}{data.table Same as Sim but field observations.}
-
 \item{species}{character Either Barnacle, Pinkfoot or Greylag.}
-
-\item{measure}{character Either LS or SSSE}
 }
 \value{
 numeric The calculated fit.
 }
 \description{
 Calculate fit between the simulated flock size distribution to the observed
-flock size distribution based on the sum of standardized squared
-errors (SSSE, Frank & Baret 2013) or 1 minus the least squares difference.
+flock size distribution based as 1 minus the least squares difference.
 }
 \details{
 The fit is measured on the proportions of the flock sizes falling into
 each bin of 10% quantiles of the observed range of flock sizes.
 The fit is in both cases measured over the entire season.
-}
-\references{
-Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
- demogenetics in a river/nursery brook system: The individual-based
- model DemGenTrout." Ecological Modelling 248: 184-202.
 }

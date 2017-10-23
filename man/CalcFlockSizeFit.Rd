@@ -5,15 +5,13 @@
 \title{Calculate the fit of the simulated flock size distribution to the observed
 flock size distribution}
 \usage{
-CalcFlockSizeFit(sim = NULL, obs = NULL, species = NULL)
+CalcFlockSizeFit(sim = NULL, obs = NULL)
 }
 \arguments{
 \item{sim}{numeric A vector of flock sizes from the simulation}
 
 \item{obs}{tibble  A tibble with a columns identifying the species
 and a column with each flock observation from the simulation.}
-
-\item{species}{character Either Barnacle, Pinkfoot or Greylag.}
 }
 \value{
 numeric The calculated fit.

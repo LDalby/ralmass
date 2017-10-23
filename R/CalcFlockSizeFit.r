@@ -11,16 +11,14 @@
 #' @param sim numeric A vector of flock sizes from the simulation
 #' @param obs tibble  A tibble with a columns identifying the species
 #' and a column with each flock observation from the simulation.
-#' @param species character Either Barnacle, Pinkfoot or Greylag.
 #' @return numeric The calculated fit.
 #' @export
-CalcFlockSizeFit =  function(sim = NULL, obs = NULL, species = NULL) {
-	if (any(is.null(sim), is.null(obs), is.null(species)))
+CalcFlockSizeFit =  function(sim = NULL, obs = NULL) {
+	if (any(is.null(sim), is.null(obs)))
 	{
 		stop('Input parameter missing')
 	}
   obs %>%
-    filter(Species == species) %>%
     pull(Numbers) -> tmp
 	vec <- quantile(tmp, probs = seq(.1,.9,.1))
 	flockobs <- findInterval(tmp, vec = vec)

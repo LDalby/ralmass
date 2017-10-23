@@ -24,6 +24,7 @@ CalcFlockSizeFit =  function(sim = NULL, obs = NULL) {
 	flockobs <- findInterval(tmp, vec = vec)
 
 	sim %>%
+	  pull(Numbers) %>%
 	  findInterval(vec = vec) -> flocksim
 
 	obs <- table(flockobs)/(sum(table(flockobs)))

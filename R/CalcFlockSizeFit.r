@@ -34,7 +34,7 @@ CalcFlockSizeFit =  function(sim = NULL, obs = NULL) {
 	names(tabdefault) <- names(obs)  # Get the same names as field data
 	tabdefault[match(names(sim), names(tabdefault))] <- sim
 
-	result <- 1 - sum((as.numeric(sim) - as.numeric(obs))^2)
+	result <- 1 - sum((as.numeric(tabdefault) - as.numeric(obs))^2)
 
 	if (result > 1 | result < 0)
 		{

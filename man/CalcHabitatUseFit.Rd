@@ -4,7 +4,7 @@
 \alias{CalcHabitatUseFit}
 \title{Calculate the fit of habitat use frequencies}
 \usage{
-CalcHabitatUseFit(FieldData, SimData, measure = NULL)
+CalcHabitatUseFit(FieldData, SimData)
 }
 \arguments{
 \item{FieldData}{data.table The table with the field data}
@@ -18,7 +18,7 @@ CalcHabitatUseFit(FieldData, SimData, measure = NULL)
 data.table The fit per species and month
 }
 \description{
-Calculate the fit between habitat use scored in the field 
-and habitat use based on the simulations. The timing of the counts in 
+Calculate the fit between habitat use scored in the field
+and habitat use based on the simulations. The timing of the counts in
 the simulation is controlled by the config variable GOOSE_TIMEDCOUNTS
 }

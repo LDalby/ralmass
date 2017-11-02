@@ -1,7 +1,7 @@
 #' Calculate the fit of habitat use frequencies
 #'
-#' Calculate the fit between habitat use scored in the field 
-#' and habitat use based on the simulations. The timing of the counts in 
+#' Calculate the fit between habitat use scored in the field
+#' and habitat use based on the simulations. The timing of the counts in
 #' the simulation is controlled by the config variable GOOSE_TIMEDCOUNTS
 #'
 #' @param FieldData data.table The table with the field data
@@ -10,11 +10,8 @@
 #' 'SSSE' or 'LS'
 #' @return data.table The fit per species and month
 #' @export
-CalcHabitatUseFit = function(FieldData, SimData, measure = NULL) {
-	if(is.null(measure)) 
-	{
-		stop('Input parameter missing')
-	}
+CalcHabitatUseFit = function(FieldData, SimData) {
+
 # Field data:
 	fielddata = FieldData[, .(Month, HabitatUse, N, Species)]
 	h = unique(fielddata[, HabitatUse])
@@ -30,7 +27,7 @@ CalcHabitatUseFit = function(FieldData, SimData, measure = NULL) {
 	fielddata[, N:=NULL]
 	data.table::setkeyv(fielddata, cols)
 # field data end
-	
+
 # Sim data:
 	SimData = SimData[Month %in% mths,]
 	newnames = c('HabitatUse', 'N')
@@ -55,7 +52,7 @@ CalcHabitatUseFit = function(FieldData, SimData, measure = NULL) {
 # Fill in zeros in all habitat classes
 	totalh = unique(c(hb[,HabitatUse], h))
 	combs = expand.grid(N = 0, HabitatUse = totalh, Month = mths,
-		Species = sp, stringsAsFactors = FALSE) 
+		Species = sp, stringsAsFactors = FALSE)
 	combs = data.table::as.data.table(combs)
 
 	temp = rbind(hb, combs)

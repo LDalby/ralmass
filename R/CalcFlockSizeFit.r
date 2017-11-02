@@ -8,23 +8,25 @@
 #' each bin of 10% quantiles of the observed range of flock sizes.
 #' The fit is in both cases measured over the entire season.
 #'
-#' @param sim numeric A vector of flock sizes from the simulation
-#' @param obs tibble  A tibble with a columns identifying the species
+#' @param sim tibble A vector of flock sizes from the simulation
+#' @param obs tibble A tibble with a columns identifying the species
 #' and a column with each flock observation from the simulation.
+#' @param var character Name of the varible to compare. Must be identical
+#' in the both sim and obs.
 #' @return numeric The calculated fit.
 #' @export
-CalcFlockSizeFit =  function(sim = NULL, obs = NULL) {
-	if (any(is.null(sim), is.null(obs)))
+CalcFlockSizeFit =  function(sim = NULL, obs = NULL, var = NULL) {
+	if (any(is.null(sim), is.null(obs), is.null(var)))
 	{
 		stop('Input parameter missing')
 	}
   obs %>%
-    pull(Numbers) -> tmp
+    pull(var) -> tmp
 	vec <- quantile(tmp, probs = seq(.1,.9,.1))
 	flockobs <- findInterval(tmp, vec = vec)
 
 	sim %>%
-	  pull(Numbers) %>%
+	  pull(var) %>%
 	  findInterval(vec = vec) -> flocksim
 
 	obs <- table(flockobs)/(sum(table(flockobs)))

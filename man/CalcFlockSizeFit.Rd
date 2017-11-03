@@ -5,7 +5,7 @@
 \title{Calculate the fit of the simulated flock size distribution to the observed
 flock size distribution}
 \usage{
-CalcFlockSizeFit(sim = NULL, obs = NULL, var = NULL)
+CalcFlockSizeFit(sim, obs, var)
 }
 \arguments{
 \item{sim}{tibble A vector of flock sizes from the simulation}

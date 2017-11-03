@@ -22,6 +22,6 @@ CalcWeightFit = function(sim = NULL, field = NULL) {
     pull(fit) -> fit
 
   assertthat::assert_that(fit > 0,
-                          msg = "Fit less that 0")
+                          msg = "Fit less than 0")
 	return(fit)
 }

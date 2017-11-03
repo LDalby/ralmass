@@ -15,11 +15,19 @@
 #' in the both sim and obs.
 #' @return numeric The calculated fit.
 #' @export
-CalcFlockSizeFit =  function(sim = NULL, obs = NULL, var = NULL) {
-	if (any(is.null(sim), is.null(obs), is.null(var)))
-	{
-		stop('Input parameter missing')
+CalcFlockSizeFit =  function(sim, obs, var) {
+	if (missing(sim))
+	  {
+	  	stop('sim should be the data from the simulation')
 	}
+  if (missing(obs))
+  {
+    stop('obs should be the field data')
+  }
+  if (missing(var))
+  {
+    stop('var should specify the name of the variable to compare')
+  }
   obs %>%
     pull(var) -> tmp
 	vec <- quantile(tmp, probs = seq(.1,.9,.1))
@@ -38,9 +46,7 @@ CalcFlockSizeFit =  function(sim = NULL, obs = NULL, var = NULL) {
 
 	result <- 1 - sum((as.numeric(tabdefault) - as.numeric(obs))^2)
 
-	if (result > 1 | result < 0)
-		{
-			stop('0 > least squares fit 1 <')  # Should be between 0 and 1
-		}
+	assertthat::assert_that(dplyr::between(result, 0, 1),
+	                        msg = "Fit not between 0 and 1")
 	return(result)
 }

@@ -6,8 +6,6 @@
 #'
 #' @param FieldData data.table The table with the field data
 #' @param SimData data.table The field forage output file from ALMaSS
-#' @param measure character The method to use for estimating the fit. Either
-#' 'SSSE' or 'LS'
 #' @return data.table The fit per species and month
 #' @export
 CalcHabitatUseFit = function(FieldData, SimData) {

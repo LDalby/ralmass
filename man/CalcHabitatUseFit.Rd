@@ -10,9 +10,6 @@ CalcHabitatUseFit(FieldData, SimData)
 \item{FieldData}{data.table The table with the field data}
 
 \item{SimData}{data.table The field forage output file from ALMaSS}
-
-\item{measure}{character The method to use for estimating the fit. Either
-'SSSE' or 'LS'}
 }
 \value{
 data.table The fit per species and month

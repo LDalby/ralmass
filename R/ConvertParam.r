@@ -36,6 +36,7 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_FLIGHTCOST_PF' = 'Flight cost - Pinkfoot',
 		'GOOSE_FLIGHTCOST_BN' = 'Flight cost - Barnacle',
 		'GOOSE_FLIGHTCOST_GL' = 'Flight cost - Greylag',
+		'GOOSE_FLIGHTCOST' = 'Flight cost',
 		'GOOSE_BARNACLEWEIGHT' = 'Base weight - Barnacle',
 		'GOOSE_PINKFOOTWEIGHT' = 'Base weight - Pinkfoot',
 		'GOOSE_GREYLAGWEIGHT' = 'Base weight - Greylag',
@@ -59,6 +60,8 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_ROOSTCHANGECHANCE_PF' = 'Chance of changing roost - Pinkfoot',
 		'GOOSE_ROOSTCHANGECHANCE_GL' = 'Chance of changing roost - Greylag',
 		'GOOSE_ROOSTCHANGECHANCE_BN' = 'Chance of changing roost - Barnacle',
-		"GOOSE_DIST_WEIGHTING_POWER" = "Decay constant. Probability as a function of distance"
+		"GOOSE_DIST_WEIGHTING_POWER" = "Decay constant. Probability as a function of distance",
+		"GOOSE_SNOW_SCALER" = "Intake rate decrease constant if snow cover",
+		"GOOSE_GRASS_TO_WINTER_CEREAL_SCALER" = "Scaler for energy content of winter cereal compared to grass"
 		)
 }

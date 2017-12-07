@@ -54,8 +54,8 @@ CalcFlockSizeFit =  function(sim, obs, var, measure) {
 	result <- 1 - sum((as.numeric(tabdefault) - as.numeric(obs))^2)
   }
   if (measure == "KS") {
-    ks <- ks.test(obs[[var]], sim[[var]])
-    result <- ks[["statistic"]]
+    ks <- suppressWarnings(ks.test(obs[[var]], sim[[var]]))
+    result <- as.numeric(ks[["statistic"]])
   }
 	assertthat::assert_that(dplyr::between(result, 0, 1),
 	                        msg = "Fit not between 0 and 1")

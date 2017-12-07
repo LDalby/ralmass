@@ -13,9 +13,10 @@
 #' and a column with each flock observation from the simulation.
 #' @param var character Name of the varible to compare. Must be identical
 #' in the both sim and obs.
+#' @param measture character Either LS (least sq.) or KS (Kolmogorov-Smirnov)
 #' @return numeric The calculated fit.
 #' @export
-CalcFlockSizeFit =  function(sim, obs, var) {
+CalcFlockSizeFit =  function(sim, obs, var, measure) {
 	if (missing(sim))
 	  {
 	  	stop('sim should be the data from the simulation')
@@ -28,6 +29,12 @@ CalcFlockSizeFit =  function(sim, obs, var) {
   {
     stop('var should specify the name of the variable to compare')
   }
+  if (missing(measure))
+  {
+    stop('measure should specify type of fit')
+  }
+
+  if (type == "LS") {
   obs %>%
     pull(var) -> tmp
 	vec <- quantile(tmp, probs = seq(.1,.9,.1))
@@ -45,7 +52,11 @@ CalcFlockSizeFit =  function(sim, obs, var) {
 	tabdefault[match(names(sim), names(tabdefault))] <- sim
 
 	result <- 1 - sum((as.numeric(tabdefault) - as.numeric(obs))^2)
-
+  }
+  if (type == "KS") {
+    ks <- ks.test(obs[,var], sim[, var])
+    result <- ks[["statistic"]]
+  }
 	assertthat::assert_that(dplyr::between(result, 0, 1),
 	                        msg = "Fit not between 0 and 1")
 	return(result)

@@ -5,7 +5,7 @@
 \title{Calculate the fit of the simulated flock size distribution to the observed
 flock size distribution}
 \usage{
-CalcFlockSizeFit(sim, obs, var)
+CalcFlockSizeFit(sim, obs, var, measure)
 }
 \arguments{
 \item{sim}{tibble A vector of flock sizes from the simulation}
@@ -15,6 +15,8 @@ and a column with each flock observation from the simulation.}
 
 \item{var}{character Name of the varible to compare. Must be identical
 in the both sim and obs.}
+
+\item{measture}{character Either LS (least sq.) or KS (Kolmogorov-Smirnov)}
 }
 \value{
 numeric The calculated fit.

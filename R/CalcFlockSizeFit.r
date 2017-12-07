@@ -34,7 +34,7 @@ CalcFlockSizeFit =  function(sim, obs, var, measure) {
     stop('measure should specify type of fit')
   }
 
-  if (type == "LS") {
+  if (measure == "LS") {
   obs %>%
     pull(var) -> tmp
 	vec <- quantile(tmp, probs = seq(.1,.9,.1))
@@ -53,7 +53,7 @@ CalcFlockSizeFit =  function(sim, obs, var, measure) {
 
 	result <- 1 - sum((as.numeric(tabdefault) - as.numeric(obs))^2)
   }
-  if (type == "KS") {
+  if (measure == "KS") {
     ks <- ks.test(obs[,var], sim[, var])
     result <- ks[["statistic"]]
   }

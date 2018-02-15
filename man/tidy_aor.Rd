@@ -4,12 +4,10 @@
 \alias{tidy_aor}
 \title{Tidy the standard AOR output}
 \usage{
-tidy_aor(aor, species = NULL)
+tidy_aor(data)
 }
 \arguments{
-\item{aor}{tibble The AOR table from ALMaSS}
-
-\item{species}{character Pinkfoot, Barnacle or Greylag}
+\item{data}{tibble The AOR table from ALMaSS}
 }
 \value{
 a tibble

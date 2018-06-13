@@ -59,6 +59,9 @@ ConvertParam <- function(param = NULL) {
 		'GOOSE_ROOSTCHANGECHANCE_PF' = 'Chance of changing roost - Pinkfoot',
 		'GOOSE_ROOSTCHANGECHANCE_GL' = 'Chance of changing roost - Greylag',
 		'GOOSE_ROOSTCHANGECHANCE_BN' = 'Chance of changing roost - Barnacle',
+		'GOOSE_FLIGHTCOST' = 'Flight cost',
+		"GOOSE_ROOSTCHANGECHANCE" = "Change of changing roost",
+		"GOOSE_GRASS_TO_WINTER_CEREAL_SCALER" = "Grass to winter cereal scaler",
 		"GOOSE_DIST_WEIGHTING_POWER" = "Decay constant. Probability as a function of distance"
 		)
 }

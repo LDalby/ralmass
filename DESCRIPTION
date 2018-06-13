@@ -11,7 +11,9 @@ Depends:
 License: GPL-3
 LazyData: true
 Imports:
+    assertthat,
     data.table,
+    dplyr,
     ggplot2,
     gridExtra,
     lubridate,

@@ -4,9 +4,9 @@
 #' @docType package
 #' @import stringr
 #' @import RColorBrewer
-#' @import plyr
 #' @import data.table
-#' @import gridExtra
+#' @import dplyr
 #' @import ggplot2
 #' @import tibble
+#' @import tidyr
 NULL

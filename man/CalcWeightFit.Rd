@@ -4,24 +4,16 @@
 \alias{CalcWeightFit}
 \title{Calculate the fit of the simulated weights to the weights observed}
 \usage{
-CalcWeightFit(Sim = NULL, Field = NULL, measure = NULL)
+CalcWeightFit(sim = NULL, field = NULL)
 }
 \arguments{
-\item{Sim}{data.table The file GooseEnergeticsData.txt}
+\item{sim}{data.frame The file GooseEnergeticsData.txt}
 
-\item{Field}{data.table The observed weights}
-
-\item{measure}{character Fit measure to use. Either LS or SSSE}
+\item{field}{data.frame The observed weights}
 }
 \value{
 numeric The calculated fit.
 }
 \description{
-Calculate fit between field weights and simulated weights using either least 
-squares or the sum of standardized squared errors (SSSE, Frank & Baret 2013)
-}
-\references{
-Frank, B. M. and P. V. Baret (2013). "Simulating brown trout
- demogenetics in a river/nursery brook system: The individual-based
- model DemGenTrout." Ecological Modelling 248: 184-202.
+Calculate fit between field weights as least squares difference
 }

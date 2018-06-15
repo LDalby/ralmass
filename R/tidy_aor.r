@@ -32,7 +32,7 @@ tidy_aor <- function(data) {
            birds = Total_no) %>%
     mutate(prop_occupied = occupied/cells) -> tidy_aor_table
 
-  col_names <- c("species", "year", "day", "birds", "cell_size", "occupied", "cells", "prop_occupied")
+  col_names <- c("year", "day", "birds", "cell_size", "occupied", "cells", "prop_occupied")
   if (!identical(names(tidy_aor_table), col_names)) {
     stop("names does not match expectation")
   }

@@ -33,7 +33,7 @@ tidy_aor <- function(data) {
     mutate(prop_occupied = occupied/cells) -> tidy_aor_table
 
   col_names <- c("species", "year", "day", "birds", "cell_size", "occupied", "cells", "prop_occupied")
-  if (!dplyr::all_equal(names(tidy_aor_table), col_names)) {
+  if (!identical(names(tidy_aor_table), col_names)) {
     stop("names does not match expectation")
   }
 

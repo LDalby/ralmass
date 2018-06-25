@@ -13,7 +13,7 @@
 #' and a column with each flock observation from the simulation.
 #' @param var character Name of the varible to compare. Must be identical
 #' in the both sim and obs.
-#' @param measture character Either LS (least sq.) or KS (Kolmogorov-Smirnov)
+#' @param measure character Either LS (least sq.) or KS (Kolmogorov-Smirnov)
 #' @return numeric The calculated fit.
 #' @export
 CalcFlockSizeFit =  function(sim, obs, var, measure) {

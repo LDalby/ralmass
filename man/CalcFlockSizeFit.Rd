@@ -16,7 +16,7 @@ and a column with each flock observation from the simulation.}
 \item{var}{character Name of the varible to compare. Must be identical
 in the both sim and obs.}
 
-\item{measture}{character Either LS (least sq.) or KS (Kolmogorov-Smirnov)}
+\item{measure}{character Either LS (least sq.) or KS (Kolmogorov-Smirnov)}
 }
 \value{
 numeric The calculated fit.

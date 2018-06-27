@@ -15,10 +15,10 @@ CalcWeightFit = function(sim = NULL, field = NULL) {
   themin <- min(sim$MeanWeight, field$MeanWeightField)
   themax <- max(sim$MeanWeight, field$MeanWeightField)
   denum <- themax-themin
-  inner_join(sim, field, by = "Week") %>%
+  inner_join(sim, field, by = "week") %>%
     mutate(MeanWeight = (MeanWeight-themin)/denum,
            MeanWeightField = (MeanWeightField-themin)/denum) %>%
-    summarise(fit = 1-sum((MeanWeight-MeanWeightField)^2)/n_distinct(Week)) %>%
+    summarise(fit = 1-sum((MeanWeight-MeanWeightField)^2)/n_distinct(week)) %>%
     pull(fit) -> fit
 
   assertthat::assert_that(fit > 0,

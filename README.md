@@ -12,6 +12,6 @@ ALMaSS it self is hosted on GitLab. See more on the [ALMaSS project page](https:
 ## Installation
 
 ```R
-devtools::install_github('LDalby/ralmass')
+devtools::install_github("LDalby/ralmass")
 ```
 

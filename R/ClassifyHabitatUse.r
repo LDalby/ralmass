@@ -35,9 +35,9 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 			data[greylag > 0 & VegTypeCombo == 'OFieldPeas-3', HabitatUseGL:='Stubble']
 			data[barnacle > 0 & VegTypeCombo == 'OFieldPeas-3', HabitatUseBN:='Stubble']
 		# Fix natural grass types:
-			data[pinkfoot > 0 & VegTypeChr == 'NaturalGrass', HabitatUsePF:='Grass']
-			data[greylag > 0 & VegTypeChr == 'NaturalGrass', HabitatUseGL:='Grass']
-			data[barnacle > 0 & VegTypeChr == 'NaturalGrass', HabitatUseBN:='Grass']
+			data[pinkfoot > 0 & veg_type_chr == 'NaturalGrass', HabitatUsePF:='Grass']
+			data[greylag > 0 & veg_type_chr == 'NaturalGrass', HabitatUseGL:='Grass']
+			data[barnacle > 0 & veg_type_chr == 'NaturalGrass', HabitatUseBN:='Grass']
 		# Fix undersown spring barley - CGG1:
 			data[pinkfoot > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUsePF:='Stubble']
@@ -45,18 +45,18 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseGL:='Stubble']
 			data[barnacle > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseBN:='Stubble']
-			data[pinkfoot > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[pinkfoot > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUsePF:='Stubble']
-			data[greylag > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[greylag > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseGL:='Stubble']
-			data[barnacle > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[barnacle > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseBN:='Stubble']
 		# SG1
-			data[pinkfoot > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[pinkfoot > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUsePF:='Stubble']
-			data[greylag > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[greylag > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUseGL:='Stubble']
-			data[barnacle > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[barnacle > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUseBN:='Stubble']
 			data[pinkfoot > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUsePF:='Stubble']
@@ -85,9 +85,9 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 			data[greylag_timed > 0 & VegTypeCombo == 'OFieldPeas-3', HabitatUseGL:='Stubble']
 			data[barnacle_timed > 0 & VegTypeCombo == 'OFieldPeas-3', HabitatUseBN:='Stubble']
 		# Fix natural grass types:
-			data[pinkfoot_timed > 0 & VegTypeChr == 'NaturalGrass', HabitatUsePF:='Grass']
-			data[greylag_timed > 0 & VegTypeChr == 'NaturalGrass', HabitatUseGL:='Grass']
-			data[barnacle_timed > 0 & VegTypeChr == 'NaturalGrass', HabitatUseBN:='Grass']
+			data[pinkfoot_timed > 0 & veg_type_chr == 'NaturalGrass', HabitatUsePF:='Grass']
+			data[greylag_timed > 0 & veg_type_chr == 'NaturalGrass', HabitatUseGL:='Grass']
+			data[barnacle_timed > 0 & veg_type_chr == 'NaturalGrass', HabitatUseBN:='Grass']
 		# Fix undersown spring barley - CGG1:
 			data[pinkfoot_timed > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUsePF:='Stubble']
@@ -95,18 +95,18 @@ ClassifyHabitatUse = function(data, species = NULL, timed = TRUE) {
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseGL:='Stubble']
 			data[barnacle_timed > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseBN:='Stubble']
-			data[pinkfoot_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[pinkfoot_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUsePF:='Stubble']
-			data[greylag_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[greylag_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseGL:='Stubble']
-			data[barnacle_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[barnacle_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'CloverGrassGrazed1', HabitatUseBN:='Stubble']
 		# SG1
-			data[pinkfoot_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[pinkfoot_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUsePF:='Stubble']
-			data[greylag_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[greylag_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUseGL:='Stubble']
-			data[barnacle_timed > 0 & VegTypeChr == 'SprBarleyCloverGrass' &
+			data[barnacle_timed > 0 & veg_type_chr == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUseBN:='Stubble']
 			data[pinkfoot_timed > 0 & previous_crop == 'SprBarleyCloverGrass' &
 			last_sown_veg == 'SeedGrass1', HabitatUsePF:='Stubble']

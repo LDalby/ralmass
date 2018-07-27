@@ -8,18 +8,18 @@
 #' @export
 PlotGoosePopulation = function (data, dates = FALSE)
 {
-  cols <- c("PFFamilies", "PFNonBreeders", "BNFamilies", "BNNonBreeders", "GLFamilies", "GLNonBreeders")
+  cols <- c("pf_families", "pf_non_breeders", "bn_families", "bn_non_breeders", "gl_families", "gl_non_breeders")
   tidyr::gather_(data,
           gather_cols = cols,
           key_col = "GooseType",
-          value_col = "Numbers") %>%
-    dplyr::filter(Numbers > 0) -> gathered
+          value_col = "numbers") %>%
+    dplyr::filter(numbers > 0) -> gathered
 
   if (dates) {
     gathered %>%
-      dplyr::mutate(Day = as.Date(Day, origin = "2010-01-01")) -> gathered
+      dplyr::mutate(day = as.Date(day, origin = "2010-01-01")) -> gathered
   }
-  p <- ggplot2::ggplot(gathered, ggplot2::aes(Day, Numbers, group = GooseType)) +
+  p <- ggplot2::ggplot(gathered, ggplot2::aes(day, numbers, group = GooseType)) +
     ggplot2::geom_line(ggplot2::aes(colour = GooseType)) +
     ggplot2::geom_point(ggplot2::aes(colour = GooseType)) +
     ggplot2::ylab("Numbers") + ggplot2::theme_bw()

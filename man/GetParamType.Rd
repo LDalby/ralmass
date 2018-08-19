@@ -4,7 +4,7 @@
 \alias{GetParamType}
 \title{Add type to input parameter string}
 \usage{
-GetParamType(param = NULL)
+GetParamType(param)
 }
 \arguments{
 \item{param}{character The input parameter}

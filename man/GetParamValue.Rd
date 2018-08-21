@@ -4,7 +4,7 @@
 \alias{GetParamValue}
 \title{Get the value of a config variable}
 \usage{
-GetParamValue(param = NULL, config = NULL)
+GetParamValue(param, config = NULL)
 }
 \arguments{
 \item{param}{character The name of the config variables}

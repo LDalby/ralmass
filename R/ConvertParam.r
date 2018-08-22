@@ -67,6 +67,7 @@ ConvertParam <- function(param = NULL) {
 		"GOOSE_ROOSTCHANGECHANCE" = "Chance of changing roost",
 		"GOOSE_SNOW_SCALER" = "Intake rate decrease constant if snow cover",
 		"GOOSE_GRASS_TO_WINTER_CEREAL_SCALER" = "Scaler for energy content of winter cereal compared to grass",
-		"PETTIFOR_C_BN" = "Cut-off on density functional response - Barnacle"
+		"PETTIFOR_C_BN" = "Cut-off on density functional response - Barnacle",
+		"PETTIFOR_A_BN" = "Max foraging time on density functional response - Barnacle"
 		)
 }

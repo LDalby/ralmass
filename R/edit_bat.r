@@ -42,6 +42,6 @@ edit_bat = function(work_dir, sh_file) {
   }
 	sh[index] <- for_line
 	filecon <- file(sh_file_path, open = "wt")
-	write(bat, file = filecon)
+	write(sh, file = filecon)
 	close(filecon)
 }

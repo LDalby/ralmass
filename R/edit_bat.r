@@ -2,55 +2,46 @@
 #'
 #' Edit a bat file or shell script to reflect the correct number of runs
 #' in a scenario. This function requires the ParameterValues.txt file
-#' to be present in WorkDir. The function reads the number of runs
+#' to be present in work_dir. The function reads the number of runs
 #' from that file.
 #'
-#' @param WorkDir character Path to the work directory with the ALMaSS exe file
+#' @param work_dir character Path to the work directory with the ALMaSS exe file
+#' @param bat_file character File name for the shell file doing the loop
 #' @export
-EditBat = function(WorkDir = NULL) {
-	if(is.null(WorkDir)) 
+edit_bat = function(work_dir, bat_file) {
+	if(missing(work_dir))
 	{
-		stop('Input parameter WorkDir missing')
+		stop("Input parameter work_dir is missing")
 	}
+  if(missing(bat_file))
+  {
+    stop("Input parameter bat_file is missing")
+  }
 	# Get the number of runs:
-	theparamvalfile = file.path(WorkDir, 'ParameterValues.txt')
-	if(!file.exists(theparamvalfile)) {
-		stop('ParameterValues.txt missing from work directory')
+	param_file <- fs::path(work_dir, "ParameterValues.txt")
+	if(!fs::file_exists(param_file)) {
+		stop(glue::glue("ParameterValues.txt missing from {work_dir}"))
 	}
-	paramvals = data.table::fread(theparamvalfile)
-	numberofparams = length(paramvals[, unique(V1)])
-	runs = nrow(paramvals)/numberofparams
-	# Get the right file in the workdirectory
-	WorkDirContent = dir(WorkDir)
-	BatIndex = grep('_01_', WorkDirContent)
-	if(length(BatIndex) == 0) {
-		stop('Bat file missing from work directory')
+	paramvals <- data.table::fread(param_file)
+	n_params <- length(paramvals[, unique(V1)])
+	runs <- nrow(paramvals)/n_params
+
+	bat_path <- fs::path(work_dir, bat_file)
+	if(!fs::file_exists(bat_path)) {
+	  stop(glue::glue("{bat_path} missing"))
 	}
-	TheBat = file.path(WorkDir, WorkDirContent[BatIndex])
-	Bat = readLines(TheBat)
-	if(length(Bat) == 0) {
-		stop('Error reading bat file')
+	bat <- readLines(bat_file)
+	if(length(bat) == 0) {
+		stop("Error reading bat file")
 	}
-	# Edit the line with the for loop
-	# .bat files:
-	if(length(grep('.bat', TheBat)) > 0) {
-	TheForLine = paste0('FOR /L %%A IN (1,1,', runs, ') DO call _02')
-	index = grep('FOR /L %%A IN', Bat)
-	if(length(index) == 0) {
-		stop('Cannot find the for loop in the bat file')
-	}
-	}
-	# .sh files:
-	if(length(grep('.sh', TheBat)) > 0) {
-	  TheForLine = paste0('for i in {1..', runs, '}')
-	  index = grep('for i in ', Bat)
-	  if(length(index) == 0) {
-	    stop('Cannot find the for loop in the bat file')
-	  }
-	}
-	
-	Bat[index] = TheForLine
-	filecon = file(TheBat, open = 'wt')
-	write(Bat, file = filecon)
+
+ for_line <- glue::glue("for i in {{01..{runs}}")
+ index <- grep("for i in ", bat)
+ if(length(index) == 0) {
+    stop("Cannot find the for loop in the bat file")
+  }
+	bat[index] <- for_line
+	filecon <- file(bat_path, open = "wt")
+	write(bat, file = filecon)
 	close(filecon)
 }

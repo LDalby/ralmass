@@ -12,7 +12,7 @@ edit_bat(work_dir, bat_file)
 \item{bat_file}{character File name for the shell file doing the loop}
 }
 \description{
-Edit a bat file or shell script to reflect the correct number of runs
+Edit a shell script to reflect the correct number of runs
 in a scenario. This function requires the ParameterValues.txt file
 to be present in work_dir. The function reads the number of runs
 from that file.
